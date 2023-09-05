@@ -39,6 +39,8 @@ export const createRestaurant = async(restaurant: IRestaurant) => {
   try{
     const response = await axios.post<IRestaurant>(`${BASE_URL}/restaurant/create`, restaurant)
 
+    console.log(response.data)
+
     return response.data;
   }
   catch(error){
