@@ -5,15 +5,8 @@ import DatePicker from "react-datepicker"
 import "../calendar.css"
 import { getBookings } from "../services/restaurantServices";
 import { restaurantIdContext } from "../contexts/restaurantIdContext";
-
-interface IBooking {
-    id: string;
-    restaurantId: string;
-    date: string;
-    time: string;
-    numberOfGuests: number;
-    customerId: string;
-}
+import { checkAviability } from "../functions/checkAviability";
+import { IFetchedBooking } from "../interfaces/interfaces";
 
 
 export const Booking = () => {
@@ -21,7 +14,7 @@ export const Booking = () => {
     const [date, setDate] = useState<Date>(new Date());
     const [time, setTime] = useState<string>('18:00');
     const [guests, setGuests] = useState<string>('1');
-    const [bookings, setBookings] = useState<IBooking[]>([]);
+    const [bookings, setBookings] = useState<IFetchedBooking[]>([]);
     const passedDates = (date: Date) => new Date() <= date;
     const [isAvaible, setIsAvailable] = useState<boolean | string>('');
 
@@ -34,24 +27,8 @@ export const Booking = () => {
         fetchBookings();
     },[restaurantId]);
 
-    // funktion som kollar om det finns tillräckligt många lediga bord för valt datum och tid
-    const checkAviability = (time: string, date: Date, guests: string) => {
-        const dateToCheck = date.toISOString().slice(0, 10);
-        const guestsAmount = parseInt(guests);
-        let tables = 1;
-
-         //om antalet gäster är mindre än 6=1 bord, 12=2 bord
-        if (guestsAmount > 6) {
-            tables = 2;
-        } else if (guestsAmount > 12) {
-            tables = 3;
-        }
-
-        //Gör en array med andra bokningar för samma tid och datum tiden och datumet
-        const filteredArray = bookings.filter(booking => booking.date === dateToCheck && booking.time === time);
-
-        //om arrayen är kortare än antalet bord så finns det plats, annars inte
-        setIsAvailable(tables < (15 - filteredArray.length) ? true : false);
+    const clickFunction = () => {
+        setIsAvailable(checkAviability(time, date, guests, bookings))
     }
 
 
@@ -80,7 +57,7 @@ export const Booking = () => {
                 onChange={(e : ChangeEvent<HTMLInputElement>) => setGuests(e.target.value)}>
             </input>
         </div>
-        <button onClick={() => checkAviability(time, date, guests)}>Vidare till bokning</button>
+        <button onClick={clickFunction}>Kontrollera tillgänglighet</button>
         <p>{isAvaible === true ? 'Det finns bord' : isAvaible === false ? 'det finns inte bord' : isAvaible === '' ? '' : ''}</p>
     </>
 }

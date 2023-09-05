@@ -1,35 +1,5 @@
 import axios from "axios"
-
-interface IRestaurant {
-  name: string;
-  address: {
-    street: string;
-    zip: string;
-    city: string;
-  };
-}
-
-export interface IBooking {
-  restaurantId: string;
-  date: string;
-  time: string;
-  numberOfGuests: number;
-  customer: {
-    name: string;
-    lastname: string;
-    email: string;
-    phone: string;
-  };
-}
-
-export interface IBookingUpdate {
-  id: string;
-  restaurantId: string;
-  date: string;
-  time: string;
-  numberOfGuests: number;
-  costumerId: string;
-}
+import { IBooking, IBookingUpdate, IRestaurant } from "../interfaces/interfaces";
 
 const BASE_URL = 'https://school-restaurant-api.azurewebsites.net';
 
