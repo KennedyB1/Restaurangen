@@ -1,0 +1,22 @@
+.contactUl,
+ul {
+  list-style: none;
+  padding: 0;
+  width: 500px;
+}
+
+.contactUl li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid;
+  padding: 5px;
+}
+
+.contactUl li span:hover {
+  color: grey;
+}
+.contactUl li span:active {
+  color: green;
+}

@@ -1,5 +1,6 @@
 import { faCopy, faEnvelope, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './styled/Contact.css'; 
 
 export const ContactInformations = () => {
   const phoneNumber = '0123456789';
@@ -19,10 +20,13 @@ export const ContactInformations = () => {
   return (
     <>
     <span>Kontaktinformation</span>
-      <ul>
+      <ul className='contactUl'>
         <li>
+        <a href={"tel:" + phoneNumber}>
+          <FontAwesomeIcon icon={faPhone} />
+          
+          </a>
           <a href={"tel:" + phoneNumber}>
-          <FontAwesomeIcon icon={faPhone} /> 
           {phoneNumber}
           </a>
           <span
@@ -35,8 +39,11 @@ export const ContactInformations = () => {
           </span>
         </li>
         <li>
-          <a href={"mailto:" + email}>
+        <a href={"mailto:" + email}>
           <FontAwesomeIcon icon={faEnvelope} />
+           
+          </a>
+          <a href={"mailto:" + email}>
            {email}
           </a>
           <span
@@ -49,8 +56,11 @@ export const ContactInformations = () => {
           </span>
         </li>
         <li>
-          <a href={locationLink}>
+        <a href={locationLink}>
           <FontAwesomeIcon icon={faLocationDot} />
+           
+          </a>
+          <a href={locationLink}>
            {location}
           </a>
           <span
