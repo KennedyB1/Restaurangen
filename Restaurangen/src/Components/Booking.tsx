@@ -23,6 +23,7 @@ export const Booking = () => {
     const [guests, setGuests] = useState<string>('1');
     const [bookings, setBookings] = useState<IBooking[]>([]);
     const passedDates = (date: Date) => new Date() <= date;
+    const [isAvaible, setIsAvailable] = useState<boolean | string>('');
 
     // hämta bokningar från databasen
     useEffect(() => {
@@ -47,11 +48,10 @@ export const Booking = () => {
         }
 
         //Gör en array med andra bokningar för samma tid och datum tiden och datumet
+        const filteredArray = bookings.filter(booking => booking.date === dateToCheck && booking.time === time);
 
         //om arrayen är kortare än antalet bord så finns det plats, annars inte
-        const isAvaible = tables < (15 - bookings.length) ? true : false;
-
-        //hitta ett sätt att lägga två bokningar om antalet gäster är över 6
+        setIsAvailable(tables < (15 - filteredArray.length) ? true : false);
     }
 
 
@@ -81,5 +81,6 @@ export const Booking = () => {
             </input>
         </div>
         <button onClick={() => checkAviability(time, date, guests)}>Vidare till bokning</button>
+        <p>{isAvaible === true ? 'Det finns bord' : isAvaible === false ? 'det finns inte bord' : isAvaible === '' ? '' : ''}</p>
     </>
 }
