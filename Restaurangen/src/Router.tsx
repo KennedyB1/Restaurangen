@@ -5,6 +5,7 @@ import { About } from "./Components/About";
 import { Menu } from "./Components/Menu";
 import { Booking } from "./Components/Booking";
 import { Admin } from "./Components/Admin";
+import { Contact } from "./Components/Contact";
 
 export const router = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
             {
                 path: "/admin",
                 element: <Admin></Admin>
+            },
+            {
+                path: "/kontakt",
+                element: <Contact></Contact>
             },
         ]
     }
