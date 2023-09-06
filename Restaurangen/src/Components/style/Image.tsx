@@ -28,3 +28,23 @@ export const ImageStaticPage = styled.img `
         margin: 0;
     }
 `
+
+export const ImageMenu = styled(ImageStaticPage) `
+    width: 40%;
+    height: 40%;
+
+    @media (min-width: 768px) {
+        display: flex;
+        position: relative;
+        left: 15%;
+        width: 25%;
+        height: 20%;
+    }
+
+@media (min-width: 1200px) {
+        position: static;
+        width: 30%;
+        height: 30%;
+        margin: 0;
+    }
+`
