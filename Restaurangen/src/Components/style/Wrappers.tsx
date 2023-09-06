@@ -95,3 +95,13 @@ export const MenuPartWrapper = styled.div `
         flex-direction: row;
     }
 `
+
+export const BookingWrapper = styled.div `
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 100vh;
+    `

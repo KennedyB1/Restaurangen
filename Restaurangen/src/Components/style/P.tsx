@@ -20,3 +20,6 @@ export const MenuParagraf = styled(Paragraf) `
     }
 `
 
+export const LightP = styled(Paragraf) `
+    color: #F3EDC9;
+`
