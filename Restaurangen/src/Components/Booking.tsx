@@ -18,6 +18,19 @@ export const Booking = () => {
     const passedDates = (date: Date) => new Date() <= date;
     const [isAvaible, setIsAvailable] = useState<boolean | string>('');
 
+    // createBooking({
+    //     "restaurantId": restaurantId,
+    //     'date': '2023-09-20',
+    //     'time': '18:00',
+    //     numberOfGuests: 7,
+    //     customer: {
+    //       'name': 'anna',
+    //       'lastname': 'annasson',
+    //       'email': 'anna@anna.com',
+    //       'phone': '000000'
+    //     }
+    //   })
+
     // hämta bokningar från databasen
     useEffect(() => {
         async function fetchBookings() {
@@ -29,6 +42,7 @@ export const Booking = () => {
 
     const clickFunction = () => {
         setIsAvailable(checkAviability(time, date, guests, bookings))
+        console.log(isAvaible);
     }
 
 
@@ -53,7 +67,7 @@ export const Booking = () => {
             <input 
                 type="number" 
                 min="1" 
-                max="12" 
+                max="24" 
                 onChange={(e : ChangeEvent<HTMLInputElement>) => setGuests(e.target.value)}>
             </input>
         </div>
