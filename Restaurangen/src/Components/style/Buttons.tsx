@@ -12,6 +12,16 @@ export const ButtonYellow = styled(Button) `
     background-color: #FFCF00;
 `
 
+export const HeaderButtonYellow = styled(ButtonYellow) `
+    display: flex;
+    position: relative;
+    bottom: 150px;
+    left: 85%;
+    font-size: 2rem;
+    width: 172px;
+    padding-left: 15px;
+`
+
 export const ButtonGreen = styled(Button) `
     background-color: #01A56A;
 `

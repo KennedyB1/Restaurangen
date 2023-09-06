@@ -58,3 +58,7 @@ export const IconImage = styled.img `
     padding: 5px;
     height: 60px;
 `
+export const IconImageHeader = styled(IconImage) `
+    padding: 15px;
+    height: 80px;
+`

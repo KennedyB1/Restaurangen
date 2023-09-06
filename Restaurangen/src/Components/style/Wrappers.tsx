@@ -8,6 +8,11 @@ export const BlackWrapper = styled(Wrapper) `
     background-color: #0E0E0E;
 `
 
+export const BlackWrapperHeader = styled(BlackWrapper) `
+    height: 95px;
+`
+
+
 export const BlackWrapperFotter = styled(BlackWrapper) `
     height: 70px;
     @media (min-width: 768px) {

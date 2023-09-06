@@ -1,12 +1,29 @@
 import { Link, Outlet } from "react-router-dom";
-import { BlackWrapperFotter } from "./style/Wrappers";
-import { IconImage } from "./style/Image";
-import { FooterSpan } from "./style/Spans";
+import { BlackWrapperFotter, BlackWrapperHeader } from "./style/Wrappers";
+import { IconImage, IconImageHeader } from "./style/Image";
+import { FooterSpan, } from "./style/Spans";
+import { HeaderLi, HeaderUl, Nav } from "./style/Nav";
+import { HeaderH1 } from "./style/Title";
+import { HeaderButtonYellow } from "./style/Buttons";
 
 
 export const Layout = () => {
     return <>
-        <header></header>
+        <header>
+            <BlackWrapperHeader>
+                <IconImageHeader src="src/assets/Burger.jpg" />
+                <HeaderH1>Hamburgerian</HeaderH1>
+                <Nav> 
+                    <HeaderUl>
+                    <HeaderLi><Link to={"/"}>Hem</Link></HeaderLi>
+                    <HeaderLi><Link to={"/meny"}>Meny</Link></HeaderLi>
+                    <HeaderLi><Link to={"/om"}>Om oss</Link></HeaderLi>
+                    <HeaderLi><Link to={"/kontakt"}>Kontakt</Link></HeaderLi>
+                    </HeaderUl>  
+                </Nav>
+                <HeaderButtonYellow as={Link} to={'/bokning'}> Boka bord </HeaderButtonYellow>
+            </BlackWrapperHeader>
+        </header>
         <main>
             <Outlet></Outlet>
         </main>
