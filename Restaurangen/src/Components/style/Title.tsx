@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
 export const HeaderH1 = styled.h1 `
+    display: inline-block;
+    position: relative;
+    font-size: 4rem;
+    bottom: 30px;
     font-family: 'Lobster', cursive;
+    color: #F3EDC9;
 `
 
 export const HeaderH2Static = styled.h2`
