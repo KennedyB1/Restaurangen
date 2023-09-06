@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext, useEffect } from "react"
+import { ChangeEvent, FormEvent, useContext, useEffect } from "react"
 import 'react-datepicker/dist/react-datepicker.css'
 import { useState } from "react";
 import DatePicker from "react-datepicker"
@@ -35,7 +35,8 @@ export const Booking = () => {
         console.log(isAvaible);
     }
 
-    const sendBooking = async () => {
+    const sendBooking = async (e: FormEvent) => {
+        e.preventDefault();
         const booking: IBooking = {
             'restaurantId': restaurantId,
             'date': date.toISOString().slice(0, 10),
@@ -66,7 +67,7 @@ export const Booking = () => {
             </div>
             <p>Har du andra frågor till restaurangen?</p>
             <textarea></textarea>
-            <button type="submit" onClick={sendBooking}>Boka</button>
+            <button type="submit" onSubmit={sendBooking}>Boka</button>
         </form>   
     </div>)
 
