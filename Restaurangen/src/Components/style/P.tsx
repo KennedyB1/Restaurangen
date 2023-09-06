@@ -19,3 +19,4 @@ export const MenuParagraf = styled(Paragraf) `
         font-size: 1.3rem;
     }
 `
+
