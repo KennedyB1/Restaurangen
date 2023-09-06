@@ -1,8 +1,14 @@
+.contactInformation {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .contactUl,
 ul {
   list-style: none;
   padding: 0;
-  width: 500px;
+  max-width: 100%;
 }
 
 .contactUl li {
