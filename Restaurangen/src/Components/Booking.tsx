@@ -3,11 +3,10 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { useState } from "react";
 import DatePicker from "react-datepicker"
 import "../calendar.css"
-import { getBookings } from "../services/restaurantServices";
+import { createBooking, getBookings } from "../services/restaurantServices";
 import { restaurantIdContext } from "../contexts/restaurantIdContext";
 import { checkAviability } from "../functions/checkAviability";
-import { IFetchedBooking } from "../interfaces/interfaces";
-import Bookingform from "./Bookingform";
+import { IBooking, IFetchedBooking } from "../interfaces/interfaces";
 
 
 export const Booking = () => {
@@ -36,6 +35,22 @@ export const Booking = () => {
         console.log(isAvaible);
     }
 
+    const sendBooking = async () => {
+        const booking: IBooking = {
+            'restaurantId': restaurantId,
+            'date': date.toISOString().slice(0, 10),
+            'time': time,
+            'numberOfGuests': parseInt(guests),
+                'customer': {
+                'name': name,
+                'lastname': lastName,
+                'email': email,
+                'phone': phoneNumber
+             }
+        }
+        createBooking(booking);
+    }
+
     const notAvaible = <p>Tyvärr har vi inte tillräckligt många lediga bord detta datumet och tiden, testa en annan dag eller annan tid</p>
     const BookingForm = (
     <div>
@@ -51,7 +66,7 @@ export const Booking = () => {
             </div>
             <p>Har du andra frågor till restaurangen?</p>
             <textarea></textarea>
-            <button type="submit">Boka</button>
+            <button type="submit" onClick={sendBooking}>Boka</button>
         </form>   
     </div>)
 
