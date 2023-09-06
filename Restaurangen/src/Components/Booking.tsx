@@ -1,12 +1,12 @@
-import { ChangeEvent, useContext, useEffect } from "react"
+import { ChangeEvent, FormEvent, useContext, useEffect } from "react"
 import 'react-datepicker/dist/react-datepicker.css'
 import { useState } from "react";
 import DatePicker from "react-datepicker"
 import "../calendar.css"
-import { getBookings } from "../services/restaurantServices";
+import { createBooking, getBookings } from "../services/restaurantServices";
 import { restaurantIdContext } from "../contexts/restaurantIdContext";
 import { checkAviability } from "../functions/checkAviability";
-import { IFetchedBooking } from "../interfaces/interfaces";
+import { IBooking, IFetchedBooking } from "../interfaces/interfaces";
 
 
 export const Booking = () => {
@@ -17,21 +17,11 @@ export const Booking = () => {
     const [bookings, setBookings] = useState<IFetchedBooking[]>([]);
     const passedDates = (date: Date) => new Date() <= date;
     const [isAvaible, setIsAvailable] = useState<boolean | string>('');
+    const [name, setName] = useState<string>('');
+    const [lastName, setLastName] = useState<string>('');
+    const [phoneNumber, setPhoneNumber] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
 
-    // createBooking({
-    //     "restaurantId": restaurantId,
-    //     'date': '2023-09-20',
-    //     'time': '18:00',
-    //     numberOfGuests: 7,
-    //     customer: {
-    //       'name': 'anna',
-    //       'lastname': 'annasson',
-    //       'email': 'anna@anna.com',
-    //       'phone': '000000'
-    //     }
-    //   })
-
-    // hämta bokningar från databasen
     useEffect(() => {
         async function fetchBookings() {
             const bookings = await getBookings(restaurantId);
@@ -44,6 +34,42 @@ export const Booking = () => {
         setIsAvailable(checkAviability(time, date, guests, bookings))
         console.log(isAvaible);
     }
+
+    const sendBooking = async (e: FormEvent) => {
+        e.preventDefault();
+        const booking: IBooking = {
+            'restaurantId': restaurantId,
+            'date': date.toISOString().slice(0, 10),
+            'time': time,
+            'numberOfGuests': parseInt(guests),
+                'customer': {
+                'name': name,
+                'lastname': lastName,
+                'email': email,
+                'phone': phoneNumber
+             }
+        }
+        createBooking(booking);
+    }
+
+    const notAvaible = <p>Tyvärr har vi inte tillräckligt många lediga bord detta datumet och tiden, testa en annan dag eller annan tid</p>
+    const BookingForm = (
+    <div>
+        <p>Det finns lediga bord detta datumet och tiden, vi behöver bara några uppgifter från dig</p>
+        <form>
+            <div>
+                <input type='text' placeholder="Förnamn" onChange={(e : ChangeEvent<HTMLInputElement>) => setName(e.target.value)} required></input>
+                <input type='text' placeholder="Efternamn" onChange={(e : ChangeEvent<HTMLInputElement>) => setLastName(e.target.value)} required></input>
+            </div>
+            <div>
+                <input type='text' placeholder="Telefonnummer" onChange={(e : ChangeEvent<HTMLInputElement>) => setPhoneNumber(e.target.value)} required></input>
+                <input type='email' placeholder="E-post" onChange={(e : ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)} required></input>
+            </div>
+            <p>Har du andra frågor till restaurangen?</p>
+            <textarea></textarea>
+            <button type="submit" onSubmit={sendBooking}>Boka</button>
+        </form>   
+    </div>)
 
 
     return <>
@@ -72,6 +98,6 @@ export const Booking = () => {
             </input>
         </div>
         <button onClick={clickFunction}>Kontrollera tillgänglighet</button>
-        <p>{isAvaible === true ? 'Det finns bord' : isAvaible === false ? 'det finns inte bord' : isAvaible === '' ? '' : ''}</p>
+        {isAvaible === true ? BookingForm : isAvaible === false ? notAvaible : isAvaible === '' ? '' : ''}
     </>
 }
