@@ -22,9 +22,6 @@ export const Home = () => {
                 </StaticTextWrapper>
                 <ImageStaticPage src="src/assets/Erbjudande.jpg"></ImageStaticPage>
             </StaticPartWrapper>
-            <ButtonYellow> Se lediga bord </ButtonYellow>
-            <ButtonRed> Avbryt </ButtonRed>
-            <ButtonGreen> Boka </ButtonGreen>
         </StaticWrapper>
         
 
