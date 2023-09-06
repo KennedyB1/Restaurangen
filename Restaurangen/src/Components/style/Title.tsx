@@ -50,6 +50,10 @@ export const HeaderH3Menu = styled(HeaderH3Static) `
         font-size: 2rem;
     }
 `
+
+export const H2 = styled.h2 `
+    font-family: 'Nixie One', cursive;
+    color: #F3EDC9;`
 /*
 @media (min-width: 768px) {
 

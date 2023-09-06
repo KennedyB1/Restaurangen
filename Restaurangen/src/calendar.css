@@ -1,3 +1,14 @@
 .react-datepicker__time-list-item--disabled{
   display: none;
 }
+
+.react-datepicker-wrapper > .react-datepicker__input-container > input {
+  background: transparent;
+  width: 255px;
+  border-style: none;
+  border: 1px solid #F3EDC9;
+  color: #F3EDC9;
+  font-family: 'poppins';
+  padding: 10px 10px 10px 30px;
+  margin-bottom: 30px;
+}
