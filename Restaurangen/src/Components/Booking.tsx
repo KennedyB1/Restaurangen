@@ -1,12 +1,13 @@
-import { ChangeEvent, FormEvent, useContext, useEffect } from "react"
-import 'react-datepicker/dist/react-datepicker.css'
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker"
 import "../calendar.css"
+import 'react-datepicker/dist/react-datepicker.css'
 import { createBooking, getBookings } from "../services/restaurantServices";
 import { restaurantIdContext } from "../contexts/restaurantIdContext";
 import { checkAviability } from "../functions/checkAviability";
 import { IBooking, IFetchedBooking } from "../interfaces/interfaces";
+import burger from '/public/burger.svg'
 
 
 export const Booking = () => {
@@ -15,12 +16,13 @@ export const Booking = () => {
     const [time, setTime] = useState<string>('18:00');
     const [guests, setGuests] = useState<string>('1');
     const [bookings, setBookings] = useState<IFetchedBooking[]>([]);
-    const passedDates = (date: Date) => new Date() <= date;
     const [isAvaible, setIsAvailable] = useState<boolean | string>('');
     const [name, setName] = useState<string>('');
     const [lastName, setLastName] = useState<string>('');
     const [phoneNumber, setPhoneNumber] = useState<string>('');
     const [email, setEmail] = useState<string>('');
+    const [booked, setBooked] = useState<boolean>(false);
+    const passedDates = (date: Date) => new Date() <= date;
 
     useEffect(() => {
         async function fetchBookings() {
@@ -31,11 +33,10 @@ export const Booking = () => {
     },[restaurantId]);
 
     const clickFunction = () => {
-        setIsAvailable(checkAviability(time, date, guests, bookings))
-        console.log(isAvaible);
+        setIsAvailable(checkAviability(time, date, guests, bookings));
     }
 
-    const sendBooking = async (e: FormEvent) => {
+    const sendBooking = (e: FormEvent) => {
         e.preventDefault();
         const booking: IBooking = {
             'restaurantId': restaurantId,
@@ -50,13 +51,19 @@ export const Booking = () => {
              }
         }
         createBooking(booking);
+        setBooked(true);
     }
 
-    const notAvaible = <p>Tyvärr har vi inte tillräckligt många lediga bord detta datumet och tiden, testa en annan dag eller annan tid</p>
+    const notAvaible = (
+    <p>
+        Tyvärr har vi inte tillräckligt många lediga bord 
+        detta datumet och tiden, testa en annan dag eller annan tid
+    </p>)
+
     const BookingForm = (
     <div>
         <p>Det finns lediga bord detta datumet och tiden, vi behöver bara några uppgifter från dig</p>
-        <form>
+        <form onSubmit={sendBooking}>
             <div>
                 <input type='text' placeholder="Förnamn" onChange={(e : ChangeEvent<HTMLInputElement>) => setName(e.target.value)} required></input>
                 <input type='text' placeholder="Efternamn" onChange={(e : ChangeEvent<HTMLInputElement>) => setLastName(e.target.value)} required></input>
@@ -67,12 +74,13 @@ export const Booking = () => {
             </div>
             <p>Har du andra frågor till restaurangen?</p>
             <textarea></textarea>
-            <button type="submit" onSubmit={sendBooking}>Boka</button>
+            <button type="submit">Boka</button>
         </form>   
     </div>)
 
-
-    return <>
+    if(!booked) {
+    return (
+        <>
         <div>
             <h2>När vill ni besöka oss?</h2>
             <div>
@@ -99,5 +107,14 @@ export const Booking = () => {
         </div>
         <button onClick={clickFunction}>Kontrollera tillgänglighet</button>
         {isAvaible === true ? BookingForm : isAvaible === false ? notAvaible : isAvaible === '' ? '' : ''}
-    </>
+        </>)
+    } else {
+        return (
+            <>
+                <h3>Tack för din bokning {name}, vi ses den {date.toISOString().slice(0, 10)} kl {time}</h3>
+                <Link to='/meny'>Ta en titt på vår meny </Link>
+                <img src={burger} alt="a burger" width='100'/>
+            </>
+        )
+    }
 }
