@@ -15,6 +15,8 @@ export const checkAviability = (time: string, date: Date, guests: string, bookin
   //Gör en array med andra bokningar för samma tid och datum tiden och datumet
   const filteredArray = bookings.filter(booking => booking.date === dateToCheck && booking.time === time);
 
+  // loopa igenom filteredArray och räkna ut antal bord baserat på antal gäster per sällskap
+
   //om arrayen är kortare än antalet bord så finns det plats, annars inte
   return (tables < (15 - filteredArray.length) ? true : false);
 }
