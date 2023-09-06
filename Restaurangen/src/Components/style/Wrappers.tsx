@@ -10,15 +10,14 @@ export const LightWrapper = styled.div`
     align-items: center;
 
     @media (min-width: 1200px) {
-    width: 98.5vw;
-    height: 100vh;
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    top: 0px;    
-}
-
+        width: 98.5vw;
+        height: 100vh;
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        top: 0px;    
+    }
 `
 
 export const StaticWrapper = styled.div`
@@ -53,6 +52,22 @@ export const StaticTextWrapper = styled.div `
 @media (min-width: 1200px) {
     padding: 0;
     width:40%
-}
-    
+    }
+`
+
+export const MenuTextWrapper = styled(StaticTextWrapper) `
+    @media (min-width: 1200px) {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        width:55%
+    }
+`
+
+export const MenuPartWrapper = styled.div `
+
+    @media (min-width: 1200px) {
+        display: flex;
+        flex-direction: row;
+    }
 `

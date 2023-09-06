@@ -16,6 +16,13 @@ export const HeaderH2Static = styled.h2`
 
     @media (min-width: 1200px) {
         font-size: 3.5rem;
+        margin-bottom: 0px;
+    }
+`
+
+export const HeaderH2Menu = styled(HeaderH2Static)`
+    @media (min-width: 1200px) {
+        margin-bottom: 20px;
     }
 `
 
@@ -24,11 +31,23 @@ export const HeaderH3Static = styled.h3 `
     font-size: 1.5rem;
 
     @media (min-width: 768px) {
-        font-size: 2.0rem;
+        font-size: 1.6rem;
     }
 
     @media (min-width: 1200px) {
         font-size: 2.3rem;
+    }
+`
+
+export const HeaderH3Menu = styled(HeaderH3Static) `
+
+
+    @media (min-width: 768px) {
+
+    }
+
+    @media (min-width: 1200px) {
+        font-size: 2rem;
     }
 `
 /*
