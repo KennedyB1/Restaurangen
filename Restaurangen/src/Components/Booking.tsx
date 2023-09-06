@@ -1,14 +1,13 @@
-import { ChangeEvent, FormEvent, useContext, useEffect } from "react"
-import 'react-datepicker/dist/react-datepicker.css'
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker"
 import "../calendar.css"
+import 'react-datepicker/dist/react-datepicker.css'
 import { createBooking, getBookings } from "../services/restaurantServices";
 import { restaurantIdContext } from "../contexts/restaurantIdContext";
 import { checkAviability } from "../functions/checkAviability";
 import { IBooking, IFetchedBooking } from "../interfaces/interfaces";
 import burger from '/public/burger.svg'
-import { Link } from "react-router-dom";
 
 
 export const Booking = () => {
@@ -17,14 +16,13 @@ export const Booking = () => {
     const [time, setTime] = useState<string>('18:00');
     const [guests, setGuests] = useState<string>('1');
     const [bookings, setBookings] = useState<IFetchedBooking[]>([]);
-    const passedDates = (date: Date) => new Date() <= date;
     const [isAvaible, setIsAvailable] = useState<boolean | string>('');
     const [name, setName] = useState<string>('');
     const [lastName, setLastName] = useState<string>('');
     const [phoneNumber, setPhoneNumber] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [booked, setBooked] = useState<boolean>(false);
-
+    const passedDates = (date: Date) => new Date() <= date;
 
     useEffect(() => {
         async function fetchBookings() {
@@ -35,8 +33,7 @@ export const Booking = () => {
     },[restaurantId]);
 
     const clickFunction = () => {
-        setIsAvailable(checkAviability(time, date, guests, bookings))
-        console.log(isAvaible);
+        setIsAvailable(checkAviability(time, date, guests, bookings));
     }
 
     const sendBooking = (e: FormEvent) => {
@@ -57,7 +54,12 @@ export const Booking = () => {
         setBooked(true);
     }
 
-    const notAvaible = <p>Tyvärr har vi inte tillräckligt många lediga bord detta datumet och tiden, testa en annan dag eller annan tid</p>
+    const notAvaible = (
+    <p>
+        Tyvärr har vi inte tillräckligt många lediga bord 
+        detta datumet och tiden, testa en annan dag eller annan tid
+    </p>)
+
     const BookingForm = (
     <div>
         <p>Det finns lediga bord detta datumet och tiden, vi behöver bara några uppgifter från dig</p>
@@ -115,5 +117,4 @@ export const Booking = () => {
             </>
         )
     }
-
 }
