@@ -2,11 +2,11 @@ import { ImageStaticPage } from "./style/Image"
 import { Paragraf } from "./style/P"
 import { HeaderH2Static } from "./style/Title"
 import { LightWrapper, StaticPartWrapper, StaticTextWrapper, StaticWrapper } from "./style/Wrappers"
-import { Image } from "./style/Image"
+import { ImageStatic } from "./style/Image"
 
 export const About = () => {
     return <>
-    <Image src="src/assets/mainImage.jpg"></Image>
+    <ImageStatic src="src/assets/mainImage.jpg"></ImageStatic>
         <LightWrapper>
             <StaticWrapper>
                 <HeaderH2Static> Om oss </HeaderH2Static>

@@ -1,9 +1,28 @@
 import styled from "styled-components";
 
-export const LightWrapper = styled.div`
-    background-color: #F3EDC9;
+export const Wrapper = styled.div `
     width: 98.5vw;
+`
+
+export const BlackWrapper = styled(Wrapper) `
+    background-color: #0E0E0E;
+`
+
+export const BlackWrapperFotter = styled(BlackWrapper) `
+    height: 70px;
+    @media (min-width: 768px) {
+        
+    }
+
+    @media (min-width: 1200px) {
+        
+    }
+`
+
+
+export const LightWrapper = styled(Wrapper)`
     height: 100vh;
+    background-color: #F3EDC9;
     display: flex;
     position: relative;
     justify-content: center;
@@ -49,9 +68,9 @@ export const StaticTextWrapper = styled.div `
     padding-left: 10%;
     padding-right: 10%;
 
-@media (min-width: 1200px) {
-    padding: 0;
-    width:40%
+    @media (min-width: 1200px) {
+        padding: 0;
+        width:40%
     }
 `
 

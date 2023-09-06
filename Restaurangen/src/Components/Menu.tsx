@@ -1,12 +1,12 @@
 import { ImageMenu } from "./style/Image"
-import { MenuParagraf, Paragraf } from "./style/P"
-import { HeaderH2Menu, HeaderH2Static, HeaderH3Menu, HeaderH3Static } from "./style/Title"
-import { MenuPartWrapper, LightWrapper, MenuTextWrapper, StaticPartWrapper, StaticTextWrapper, StaticWrapper } from "./style/Wrappers"
-import { Image } from "./style/Image"
+import { MenuParagraf,  } from "./style/P"
+import { HeaderH2Menu,  HeaderH3Menu, } from "./style/Title"
+import { MenuPartWrapper, LightWrapper, MenuTextWrapper, StaticPartWrapper, StaticWrapper } from "./style/Wrappers"
+import { ImageStatic } from "./style/Image"
 
 export const Menu = () => {
     return <>
-        <Image src="src/assets/mainImage.jpg"></Image>
+        <ImageStatic src="src/assets/mainImage.jpg"></ImageStatic>
         <LightWrapper>
             <StaticWrapper>
                 <HeaderH2Menu>Meny</HeaderH2Menu>

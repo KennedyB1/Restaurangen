@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-export const Image = styled.img `
+
+
+
+
+
+export const ImageStatic = styled.img `
     width: 100%;
     height: 50px;
     object-fit: cover;
@@ -47,4 +52,9 @@ export const ImageMenu = styled(ImageStaticPage) `
         height: 30%;
         margin: 0;
     }
+`
+
+export const IconImage = styled.img `
+    padding: 5px;
+    height: 60px;
 `

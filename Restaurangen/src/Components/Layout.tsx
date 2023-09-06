@@ -1,4 +1,8 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import { BlackWrapperFotter } from "./style/Wrappers";
+import { IconImage } from "./style/Image";
+import { FooterSpan } from "./style/Spans";
+
 
 export const Layout = () => {
     return <>
@@ -6,7 +10,16 @@ export const Layout = () => {
         <main>
             <Outlet></Outlet>
         </main>
-        <footer></footer>
-    
+        <footer>
+            <BlackWrapperFotter>
+                <IconImage src="src/assets/Burger.jpg" />
+                <FooterSpan><Link to={"/kontakt"}>Kontakt</Link></FooterSpan>
+                <FooterSpan><Link to={"/om"}>Om oss</Link></FooterSpan>
+                <FooterSpan><Link to={""}>Cookies</Link></FooterSpan>
+                <FooterSpan><Link to={"/bokning"}>Boka bord</Link></FooterSpan>
+                <FooterSpan><Link to={"/admin"}>Adminläge</Link></FooterSpan>
+            </BlackWrapperFotter>
+
+        </footer>
     </>
 }

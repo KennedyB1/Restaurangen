@@ -1,13 +1,12 @@
-import { ImageStaticPage } from "./style/Image"
+import { ImageStatic, ImageStaticPage } from "./style/Image"
 import { Paragraf } from "./style/P"
 import { HeaderH2Static, HeaderH3Static } from "./style/Title"
 import { LightWrapper, StaticPartWrapper, StaticTextWrapper, StaticWrapper } from "./style/Wrappers"
-import { Image } from "./style/Image"
-import { ButtonGreen, ButtonRed, ButtonYellow } from "./style/Buttons"
+
 
 export const Home = () => {
     return <>
-    <Image src="src/assets/mainImage.jpg"></Image>
+    <ImageStatic src="src/assets/mainImage.jpg"></ImageStatic>
     <LightWrapper>
         <StaticWrapper>
             <HeaderH2Static>Specialerbjudande</HeaderH2Static>
