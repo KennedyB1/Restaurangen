@@ -1,0 +1,39 @@
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contactForm span {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+
+.contactForm label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.contactForm input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contactForm textarea {
+  height: 150px;
+  max-width: 400px;
+  resize: vertical;
+}
+
+.contactForm input[type="submit"] {
+  cursor: pointer;
+}
+
+.contactForm input[type="submit"]:hover {
+  color: gold;
+}

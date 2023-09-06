@@ -18,7 +18,7 @@ export const ContactInformations = () => {
   };
 
   return (
-    <>
+    <div className='contactInformation'>
     <span>Kontaktinformation</span>
       <ul className='contactUl'>
         <li>
@@ -73,6 +73,6 @@ export const ContactInformations = () => {
           </span>
         </li>
       </ul>
-    </>
+    </div>
   );
 };
