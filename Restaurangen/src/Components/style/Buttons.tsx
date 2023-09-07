@@ -10,6 +10,7 @@ export const Button = styled.button `
 
 export const ButtonYellow = styled(Button) `
     background-color: #FFCF00;
+    color: #0E0E0E;
 `
 
 export const HeaderButtonYellow = styled(ButtonYellow) `
