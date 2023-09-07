@@ -6,6 +6,7 @@ import { Menu } from "./Components/Menu";
 import { Booking } from "./Components/Booking";
 import { Admin } from "./Components/Admin";
 import { Contact } from "./Components/Contact";
+import { Dashboard } from "./Components/Dashboard";
 
 export const router = createBrowserRouter([
     {
@@ -33,7 +34,10 @@ export const router = createBrowserRouter([
                 path: "/admin",
                 element: <Admin></Admin>
             },
-            
+            {
+                path: "/dashboard",
+                element: <Dashboard></Dashboard>
+            },
             {
                 path: "/kontakt",
                 element: <Contact></Contact>
