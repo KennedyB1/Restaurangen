@@ -33,6 +33,8 @@ export const Booking = () => {
     useEffect(() => {
         if (isAvaible === true) {
             setView(2);
+        } if(isAvaible === '') {
+            setView(1);
         }
     }, [isAvaible]);
 
@@ -79,6 +81,7 @@ export const Booking = () => {
             setName={setName}
             setLastName={setLastName}
             setEmail={setEmail}
+            setIsAvaible={setIsAvailable}
             />
         )
     } else if(view === 3) {
