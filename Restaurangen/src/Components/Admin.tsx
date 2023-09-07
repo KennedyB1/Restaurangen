@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
+import { Dashboard } from './Dashboard';
 
 export const Admin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); 
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
@@ -19,15 +20,15 @@ export const Admin = () => {
     );
 
     if (isAuthenticated) {
-      
+      setIsLoggedIn(true);
       
       console.log('Logged in successfully!');
-      navigate('/dashboard'); 
+      navigate('/admin'); 
     } else {
       console.error('Authentication failed.');
     }
   };
-
+  if (!isLoggedIn) {
   return (
     <div>
       <h2>Login</h2>
@@ -53,5 +54,12 @@ export const Admin = () => {
         <button type="submit">Login</button>
       </form>
     </div>
+  );
+} 
+return (
+    <>
+      <Dashboard />
+      
+    </>
   );
 };
