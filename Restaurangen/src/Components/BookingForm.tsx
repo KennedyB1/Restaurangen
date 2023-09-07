@@ -3,9 +3,10 @@ import { BookingSection } from "./style/BookingStyle";
 import { BookingWrapper } from "./style/Wrappers";
 import { LightPSmall } from "./style/P";
 import { Input, Textarea } from "./style/Form";
-import { ButtonYellow } from "./style/Buttons";
-import { Form } from "./style/Form";
+import { ButtonYellow, CancelBtn } from "./style/Buttons";
+import { Form, CheckLabel } from "./style/Form";
 import { H2centered } from "./style/Title";
+import { Link } from "react-router-dom";
 
 interface IBookingFormProps {
   sendBooking: (e: FormEvent) => void;
@@ -13,14 +14,17 @@ interface IBookingFormProps {
   setName: (name: string) => void;
   setLastName: (lastName: string) => void;
   setEmail: (email: string) => void;
+  setIsAvaible: (avaible: string) => void;
 }
 
 export default function BookingForm(props: IBookingFormProps) {
-  console.log(props)
+  const linkStyle = {
+    color: '#F3EDC9',
+  }
+
 return (
   <BookingSection>
       <BookingWrapper>
-        <div>
           <H2centered>Det finns lediga bord detta datumet och tiden, <br></br>vi behöver bara några uppgifter från dig</H2centered>
           <Form onSubmit={props.sendBooking}>
               <div>
@@ -33,9 +37,11 @@ return (
               </div>
               <LightPSmall>Har du andra frågor till restaurangen?</LightPSmall>
               <Textarea></Textarea><br></br>
+              <input type="checkbox" id="gdpr" name="gdpr" required/>
+              <CheckLabel htmlFor="gdpr">Jag godkänner hantering av <Link style={linkStyle} to="/gdpr" target="_blank" rel="noopener noreferrer">personuppgifter</Link></CheckLabel><br></br>
               <ButtonYellow type="submit">Boka</ButtonYellow>
+              <CancelBtn type="button" onClick={() => props.setIsAvaible('')}>Avbryt bokning</CancelBtn>
           </Form>   
-        </div>
       </BookingWrapper>
   </BookingSection>
 )

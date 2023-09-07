@@ -29,6 +29,7 @@ font-family: 'Poppins', sans-serif;
 width: 115%!important;
 padding: 10px 10px 10px 30px;`;
 
+
 export const Textarea = styled.textarea `
 border-color: #F3EDC9;
 background: transparent;
@@ -40,3 +41,8 @@ border: 1px solid #F3EDC9!important;
 border-radius: 0px!important;
 padding: 10px 10px 10px 30px!important;
 margin-bottom: 30px!important;`;
+
+export const CheckLabel = styled.label `
+font-size: 0.7rem;
+color: #F3EDC9;
+font-family: 'Poppins', sans-serif;`;

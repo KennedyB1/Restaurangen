@@ -7,6 +7,7 @@ import { Booking } from "./Components/Booking";
 import { Admin } from "./Components/Admin";
 import { Contact } from "./Components/Contact";
 import { Dashboard } from "./Components/Dashboard";
+import Gdpr from "./Components/Gdpr";
 
 export const router = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
             {
                 path: "/kontakt",
                 element: <Contact></Contact>
+            },
+            {
+                path: "/gdpr",
+                element: <Gdpr></Gdpr>
             },
         ]
     }

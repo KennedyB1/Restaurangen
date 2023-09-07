@@ -50,3 +50,17 @@ export const ButtonGreen = styled(Button) `
 export const ButtonRed = styled(Button) `
     background-color: #924C4C;
 `
+
+export const CancelBtn = styled.button `
+    background: transparent;
+    color: #924C4C;
+    font-family: "Poppins", sans-serif;
+    border: 'none';
+    border-style: none!important;
+    text-decoration: underline;
+    margin-left: 20px;
+
+    &:hover{
+        cursor: pointer;
+    }
+    `
