@@ -4,9 +4,9 @@ import { ButtonYellow } from "./style/Buttons";
 import { Select, Input } from "./style/Form";
 import { H2 } from "./style/Title";
 import { BookingWrapper } from "./style/Wrappers";
-import DatePicker from "react-datepicker";
 import { LightP } from "./style/P";
 import { Form } from "react-router-dom";
+import Datepicker from "./DatePicker";
 
 interface ICheckAvaibilityProps {
     clickFunction: (e: FormEvent) => void;
@@ -20,7 +20,6 @@ interface ICheckAvaibilityProps {
 }
 
 export default function CheckAvaibility(props: ICheckAvaibilityProps) {
-  const passedDates = (date: Date) => new Date() <= date;
 
   const notAvaible = (
     <LightP>
@@ -35,13 +34,7 @@ export default function CheckAvaibility(props: ICheckAvaibilityProps) {
               <div>
                   <H2>När vill ni besöka oss?</H2>
                   <div>
-                      <DatePicker 
-                          filterDate={passedDates}
-                          selected={props.date} 
-                          onChange={(date: Date) => props.setDate(date)}
-                          dateFormat="yyyy-MM-dd"
-                          required>
-                      </DatePicker>
+                      <Datepicker setDate={props.setDate} date={props.date}/>
                       <Select onChange={(e : ChangeEvent<HTMLSelectElement>) => props.setTime(e.target.value)} required>
                           <option value="18:00">18:00</option>
                           <option value="21:00">21:00</option>
