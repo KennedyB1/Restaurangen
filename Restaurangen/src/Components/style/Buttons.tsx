@@ -4,8 +4,14 @@ export const Button = styled.button `
     font-family: 'Poppins', sans-serif;
     border: black 1px solid;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px 15px;
     margin: 5px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        padding: 12px 20px;
+    }
 `
 
 export const ButtonYellow = styled(Button) `

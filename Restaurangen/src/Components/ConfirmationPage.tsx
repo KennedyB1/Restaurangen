@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import { ButtonGreen } from "./style/Buttons";
-import burger from '/public/burger.svg';
+import burger from '../assets/burger.png';
+import { BookingSection } from "./style/BookingStyle";
+import { BookingWrapper } from "./style/Wrappers";
+import { H2centered } from "./style/Title";
+import { ImgConfirmation } from "./style/Image";
 
 interface IConformationPageProps {
     name: string;
@@ -10,12 +14,12 @@ interface IConformationPageProps {
 
 export default function ConfirmationPage(props: IConformationPageProps) {
     return (
-        <div>
-          <>
-            <h3>Tack för din bokning {props.name}, vi ses den {props.date.toISOString().slice(0, 10)} kl {props.time}</h3>
+      <BookingSection>
+        <BookingWrapper>
+            <H2centered>Tack för din bokning {props.name},<br></br> vi ses den {props.date.toISOString().slice(0, 10)} kl {props.time} 🔥 🔥</H2centered>
             <Link to='/meny'><ButtonGreen>Ta en titt på vår meny</ButtonGreen> </Link>
-            <img src={burger} alt="a burger" width='100'/>
-          </>
-        </div>
+            <ImgConfirmation src={burger} alt="a burger" width='100'/>
+        </BookingWrapper>
+      </BookingSection>
     )
 }

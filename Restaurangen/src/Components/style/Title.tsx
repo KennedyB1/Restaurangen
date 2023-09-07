@@ -67,6 +67,12 @@ export const HeaderH3Menu = styled(HeaderH3Static) `
 export const H2 = styled.h2 `
     font-family: 'Nixie One', cursive;
     color: #F3EDC9;`
+
+export const H2centered = styled(H2)`
+    text-align: center;
+    line-height: 3rem;
+    margin-bottom: 50px;
+`
 /*
 @media (min-width: 768px) {
 

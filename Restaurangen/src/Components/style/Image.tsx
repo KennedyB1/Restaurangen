@@ -73,3 +73,9 @@ export const IconImageHeader = styled(IconImage) `
         height: 80px;
     }
 `
+
+export const ImgConfirmation = styled.img `
+height: 200px;
+width: auto;
+opacity: 0.5;
+margin-top: 50px;`
