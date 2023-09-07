@@ -73,6 +73,12 @@ export const H2centered = styled(H2)`
     line-height: 3rem;
     margin-bottom: 50px;
 `
+
+export const H2AdminView = styled(H2centered)`
+margin-top: 0px;
+padding-top: 75px;
+font-size: 2rem;
+`
 /*
 @media (min-width: 768px) {
 

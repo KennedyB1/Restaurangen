@@ -8,6 +8,11 @@ export const BlackWrapper = styled(Wrapper) `
     background-color: #0E0E0E;
 `
 
+export const BlackWrapperAdminPage = styled(BlackWrapper)`
+    width: 100%;
+    height: 100vh;
+`
+
 export const BlackWrapperHeader = styled(BlackWrapper) `
     height: 95px;
 `
