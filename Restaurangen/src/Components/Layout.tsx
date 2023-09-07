@@ -15,13 +15,13 @@ export const Layout = () => {
                 <HeaderH1>Hamburgerian</HeaderH1>
                 <Nav> 
                     <HeaderUl>
-                    <HeaderLi><Link to={"/"}>Hem</Link></HeaderLi>
-                    <HeaderLi><Link to={"/meny"}>Meny</Link></HeaderLi>
-                    <HeaderLi><Link to={"/om"}>Om oss</Link></HeaderLi>
-                    <HeaderLi><Link to={"/kontakt"}>Kontakt</Link></HeaderLi>
+                    <HeaderLi><Link to={"/"} style={{ color: '#F3EDC9' }}>Hem</Link></HeaderLi>
+                    <HeaderLi><Link to={"/meny"} style={{ color: '#F3EDC9' }}>Meny</Link></HeaderLi>
+                    <HeaderLi><Link to={"/om"} style={{ color: '#F3EDC9' }}>Om oss</Link></HeaderLi>
+                    <HeaderLi><Link to={"/kontakt"} style={{ color: '#F3EDC9' }}>Kontakt</Link></HeaderLi>
                     </HeaderUl>  
                 </Nav>
-                <HeaderButtonYellow as={Link} to={'/bokning'}> Boka bord </HeaderButtonYellow>
+                <HeaderButtonYellow as={Link} to={'/bokning'} > Boka bord </HeaderButtonYellow>
             </BlackWrapperHeader>
         </header>
         <main>
@@ -30,11 +30,11 @@ export const Layout = () => {
         <footer>
             <BlackWrapperFotter>
                 <IconImage src="src/assets/Burger.jpg" />
-                <FooterSpan><Link to={"/kontakt"}>Kontakt</Link></FooterSpan>
-                <FooterSpan><Link to={"/om"}>Om oss</Link></FooterSpan>
-                <FooterSpan><Link to={""}>Cookies</Link></FooterSpan>
-                <FooterSpan><Link to={"/bokning"}>Boka bord</Link></FooterSpan>
-                <FooterSpan><Link to={"/admin"}>Adminläge</Link></FooterSpan>
+                <FooterSpan><Link to={"/kontakt"} style={{ color: '#F3EDC9' }}>Kontakt</Link></FooterSpan>
+                <FooterSpan><Link to={"/om"} style={{ color: '#F3EDC9' }}>Om oss</Link></FooterSpan>
+                <FooterSpan><Link to={""} style={{ color: '#F3EDC9' }}>Cookies</Link></FooterSpan>
+                <FooterSpan><Link to={"/bokning"} style={{ color: '#F3EDC9' }}>Boka bord</Link></FooterSpan>
+                <FooterSpan><Link to={"/admin"} style={{ color: '#F3EDC9' }}>Adminläge</Link></FooterSpan>
             </BlackWrapperFotter>
 
         </footer>

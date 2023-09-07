@@ -3,10 +3,20 @@ import styled from "styled-components";
 export const HeaderH1 = styled.h1 `
     display: inline-block;
     position: relative;
-    font-size: 4rem;
-    bottom: 30px;
+    font-size:2rem;
+    bottom: 0px;
     font-family: 'Lobster', cursive;
     color: #F3EDC9;
+
+    @media (min-width: 768px) {
+        bottom: 0px;
+    }
+
+    @media (min-width: 1200px) {
+        bottom: 30px;
+        font-size: 4rem;
+}
+
 `
 
 export const HeaderH2Static = styled.h2`
@@ -46,9 +56,7 @@ export const HeaderH3Static = styled.h3 `
 
 export const HeaderH3Menu = styled(HeaderH3Static) `
 
-
     @media (min-width: 768px) {
-
     }
 
     @media (min-width: 1200px) {

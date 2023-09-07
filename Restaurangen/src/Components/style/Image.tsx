@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
 
-
-
-
-
 export const ImageStatic = styled.img `
     width: 100%;
     height: 50px;
@@ -46,7 +42,7 @@ export const ImageMenu = styled(ImageStaticPage) `
         height: 20%;
     }
 
-@media (min-width: 1200px) {
+    @media (min-width: 1200px) {
         position: static;
         width: 30%;
         height: 30%;
@@ -59,6 +55,21 @@ export const IconImage = styled.img `
     height: 60px;
 `
 export const IconImageHeader = styled(IconImage) `
-    padding: 15px;
-    height: 80px;
+        position: relative;
+        top: 15px;
+        padding: 10px;
+        height: 40px;
+
+    @media (min-width: 768px) {
+        position: relative;
+        top: 15px;
+        padding: 10px;
+        height: 40px;
+    }
+
+    @media (min-width: 1200px) {
+        top: 0px;
+        padding: 15px;
+        height: 80px;
+    }
 `

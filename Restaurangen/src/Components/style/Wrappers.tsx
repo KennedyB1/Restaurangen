@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div `
-    width: 98.5vw;
+    width: 100%;
 `
 
 export const BlackWrapper = styled(Wrapper) `
@@ -15,18 +15,11 @@ export const BlackWrapperHeader = styled(BlackWrapper) `
 
 export const BlackWrapperFotter = styled(BlackWrapper) `
     height: 70px;
-    @media (min-width: 768px) {
-        
-    }
-
-    @media (min-width: 1200px) {
-        
-    }
 `
 
 
 export const LightWrapper = styled(Wrapper)`
-    height: 100vh;
+    height: 100%;
     background-color: #F3EDC9;
     display: flex;
     position: relative;
@@ -34,7 +27,7 @@ export const LightWrapper = styled(Wrapper)`
     align-items: center;
 
     @media (min-width: 1200px) {
-        width: 98.5vw;
+        width: 100%;
         height: 100vh;
         display: flex;
         position: relative;
@@ -48,7 +41,7 @@ export const StaticWrapper = styled.div`
     background-color: white;
     width: 80%;
     height: 90%;
-    border: solid black 1px;
+    /*border: solid black 1px;*/
     border-radius: 2%;
     justify-content: center;
 

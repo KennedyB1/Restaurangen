@@ -10,16 +10,31 @@ export const Button = styled.button `
 
 export const ButtonYellow = styled(Button) `
     background-color: #FFCF00;
+    color: #0E0E0E;
 `
 
 export const HeaderButtonYellow = styled(ButtonYellow) `
     display: flex;
     position: relative;
-    bottom: 150px;
-    left: 85%;
-    font-size: 2rem;
-    width: 172px;
+    bottom: 62px;
+    left: 70%;
+    font-size: 0.8rem;
+    width: 70px;
     padding-left: 15px;
+
+    @media (min-width: 768px) {
+        font-size: 1rem;
+        bottom: 65px;
+        left: 80%;
+        width: 100px;
+    }
+
+    @media (min-width: 1200px) {
+        left: 87%;
+        bottom:150px;
+        font-size: 1.5rem;
+        width: 130px;
+    }
 `
 
 export const ButtonGreen = styled(Button) `
