@@ -23,3 +23,9 @@ export const MenuParagraf = styled(Paragraf) `
 export const LightP = styled(Paragraf) `
     color: #F3EDC9;
 `
+export const LightPCentered = styled(LightP) `
+text-align: center;`;
+
+export const LightPSmall = styled(LightP) `
+    font-size: 0.8rem;
+`

@@ -6,6 +6,7 @@ import { H2 } from "./style/Title";
 import { BookingWrapper } from "./style/Wrappers";
 import DatePicker from "react-datepicker";
 import { LightP } from "./style/P";
+import { Form } from "react-router-dom";
 
 interface ICheckAvaibilityProps {
     clickFunction: (e: FormEvent) => void;
@@ -30,7 +31,7 @@ export default function CheckAvaibility(props: ICheckAvaibilityProps) {
     return (
       <BookingSection>
         <BookingWrapper>
-          <form onSubmit={props.clickFunction}>
+          <Form onSubmit={props.clickFunction}>
               <div>
                   <H2>När vill ni besöka oss?</H2>
                   <div>
@@ -58,7 +59,7 @@ export default function CheckAvaibility(props: ICheckAvaibilityProps) {
                   </Input>
               </div>
               <ButtonYellow type='submit'>Kontrollera tillgänglighet</ButtonYellow>
-          </form>
+          </Form>
           {props.isAvaible === false ? notAvaible : props.isAvaible === '' ? '' : ''}
       </BookingWrapper>
   </BookingSection>
