@@ -1,17 +1,27 @@
 import styled from "styled-components";
     
 export const Nav = styled.nav `
-    display: none;
+    background-color: black;
+    position: absolute;
+    top: 70px;
+    z-index: 10;
     @media (min-width: 768px) {
         display: inline-block;
+        top:30px;
+        background-color: transparent;
+    }
+    @media (min-width: 1200px) {
+        top: 70px;
     }
 `
 export const HeaderUl = styled.ul`
     width: 50vw;
+    
 `
 
 export const HeaderLi = styled.li `
-    display: none;
+    font-size: 1.5rem;
+    margin: 15px;
 
     @media (min-width: 768px) {
         position: relative;

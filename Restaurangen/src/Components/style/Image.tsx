@@ -55,12 +55,14 @@ export const IconImage = styled.img `
     height: 60px;
 `
 export const IconImageHeader = styled(IconImage) `
+        cursor: pointer;
         position: relative;
         top: 15px;
         padding: 10px;
         height: 40px;
 
     @media (min-width: 768px) {
+        cursor:none;
         position: relative;
         top: 15px;
         padding: 10px;
