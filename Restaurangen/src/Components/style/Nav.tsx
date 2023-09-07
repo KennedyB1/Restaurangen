@@ -11,7 +11,7 @@ export const Nav = styled.nav `
         background-color: transparent;
     }
     @media (min-width: 1200px) {
-        top: 70px;
+        
     }
 `
 export const HeaderUl = styled.ul`
@@ -26,20 +26,25 @@ export const HeaderLi = styled.li `
     @media (min-width: 768px) {
         position: relative;
         display: inline-block;
-        bottom: 5px;
+        bottom: 20px;
         font-size: 1rem;
-        padding-left: 8%;
+        padding-left: 3.5%;
         font-family: 'Poppins', sans-serif;
     }    
+
+    @media (min-width: 910px) {
+        padding-left: 5%;
+        font-size: 1.2rem;
+    }   
+  
     @media (min-width: 1200px) {
-        bottom: 40px;
-        padding-left: 8%;
-        font-size: 1.5rem;
+        padding-left:7%;
     }
 
     @media (min-width: 1400px) {
-        padding-left: 13%;
-
+        padding-left: 10%;
+        font-size: 1.5rem;
+        bottom: 20px;
     }
 `
 
