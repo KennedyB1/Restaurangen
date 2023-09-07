@@ -30,7 +30,7 @@ export const HeaderButtonYellow = styled(ButtonYellow) `
     }
 
     @media (min-width: 1200px) {
-        left: 85%;
+        left: 87%;
         bottom:150px;
         font-size: 1.5rem;
         width: 130px;
