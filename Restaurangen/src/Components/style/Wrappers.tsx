@@ -15,13 +15,6 @@ export const BlackWrapperHeader = styled(BlackWrapper) `
 
 export const BlackWrapperFotter = styled(BlackWrapper) `
     height: 70px;
-    @media (min-width: 768px) {
-        
-    }
-
-    @media (min-width: 1200px) {
-        
-    }
 `
 
 
@@ -48,7 +41,7 @@ export const StaticWrapper = styled.div`
     background-color: white;
     width: 80%;
     height: 90%;
-    border: solid black 1px;
+    /*border: solid black 1px;*/
     border-radius: 2%;
     justify-content: center;
 

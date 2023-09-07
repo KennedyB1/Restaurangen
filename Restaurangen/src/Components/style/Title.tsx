@@ -46,9 +46,7 @@ export const HeaderH3Static = styled.h3 `
 
 export const HeaderH3Menu = styled(HeaderH3Static) `
 
-
     @media (min-width: 768px) {
-
     }
 
     @media (min-width: 1200px) {
