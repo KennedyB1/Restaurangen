@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div `
-    width: 98.5vw;
+    width: 100%;
 `
 
 export const BlackWrapper = styled(Wrapper) `
@@ -19,7 +19,7 @@ export const BlackWrapperFotter = styled(BlackWrapper) `
 
 
 export const LightWrapper = styled(Wrapper)`
-    height: 100vh;
+    height: 100%;
     background-color: #F3EDC9;
     display: flex;
     position: relative;
@@ -27,7 +27,7 @@ export const LightWrapper = styled(Wrapper)`
     align-items: center;
 
     @media (min-width: 1200px) {
-        width: 98.5vw;
+        width: 100%;
         height: 100vh;
         display: flex;
         position: relative;
