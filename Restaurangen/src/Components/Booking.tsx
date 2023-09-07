@@ -30,12 +30,15 @@ export const Booking = () => {
         fetchBookings();
     },[restaurantId]);
 
+    useEffect(() => {
+        if (isAvaible === true) {
+            setView(2);
+        }
+    }, [isAvaible]);
+
     const clickFunction = (e: FormEvent) => {
         e.preventDefault();
         setIsAvailable(checkAviability(time, date, guests, bookings));
-        if(isAvaible === true) {
-            setView(2);
-        }
     }
 
     const sendBooking = (e: FormEvent) => {
