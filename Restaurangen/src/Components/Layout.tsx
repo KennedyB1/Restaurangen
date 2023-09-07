@@ -5,19 +5,40 @@ import { FooterSpan, } from "./style/Spans";
 import { HeaderLi, HeaderUl, Nav } from "./style/Nav";
 import { HeaderH1 } from "./style/Title";
 import { HeaderButtonYellow } from "./style/Buttons";
+import "../hamburger.css"
+import { useState } from "react";
 
 export const Layout = () => {
+    
+    const [burgerClass, setBurgerClass] = useState("hidden");
+
+    function SwitchBurgerMenu () {
+        //console.log("Klickad")
+        if (burgerClass === "hidden") {
+            setBurgerClass("visible")
+        } else {
+            setBurgerClass("hidden")
+        }
+    }
+
+    function closeBurger () {
+        console.log("klickad");
+        if (burgerClass === "visible") {
+            setBurgerClass("hidden")
+        }
+    }
+
     return <>
         <header>
             <BlackWrapperHeader>
-                <IconImageHeader src="src/assets/Burger.jpg" />
+                <IconImageHeader src="src/assets/Burger.jpg" onClick={SwitchBurgerMenu}/>
                 <HeaderH1>Hamburgerian</HeaderH1>
-                <Nav> 
+                <Nav className= {burgerClass}> 
                     <HeaderUl>
-                    <HeaderLi><Link to={"/"} style={{ color: '#F3EDC9' }}>Hem</Link></HeaderLi>
-                    <HeaderLi><Link to={"/meny"} style={{ color: '#F3EDC9' }}>Meny</Link></HeaderLi>
-                    <HeaderLi><Link to={"/om"} style={{ color: '#F3EDC9' }}>Om oss</Link></HeaderLi>
-                    <HeaderLi><Link to={"/kontakt"} style={{ color: '#F3EDC9' }}>Kontakt</Link></HeaderLi>
+                    <HeaderLi onClick={closeBurger}><Link  to={"/"} style={{ color: '#F3EDC9' }}>Hem</Link></HeaderLi>
+                    <HeaderLi onClick={closeBurger}><Link to={"/meny"} style={{ color: '#F3EDC9' }}>Meny</Link></HeaderLi>
+                    <HeaderLi onClick={closeBurger}><Link to={"/om"} style={{ color: '#F3EDC9' }}>Om oss</Link></HeaderLi>
+                    <HeaderLi onClick={closeBurger}><Link to={"/kontakt"} style={{ color: '#F3EDC9' }}>Kontakt</Link></HeaderLi>
                     </HeaderUl>  
                 </Nav>
                 <HeaderButtonYellow as={Link} to={'/bokning'} > Boka bord </HeaderButtonYellow>

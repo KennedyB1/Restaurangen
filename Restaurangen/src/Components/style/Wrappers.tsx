@@ -10,6 +10,7 @@ export const BlackWrapper = styled(Wrapper) `
 
 export const BlackWrapperHeader = styled(BlackWrapper) `
     height: 95px;
+    position: relative;
 `
 
 
