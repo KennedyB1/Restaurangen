@@ -4,7 +4,7 @@
 
 .react-datepicker-wrapper > .react-datepicker__input-container > input {
   background: transparent;
-  width: 255px;
+  width: 152%!important;
   border-style: none;
   border: 1px solid #F3EDC9;
   color: #F3EDC9;

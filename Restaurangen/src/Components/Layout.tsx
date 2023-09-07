@@ -6,7 +6,6 @@ import { HeaderLi, HeaderUl, Nav } from "./style/Nav";
 import { HeaderH1 } from "./style/Title";
 import { HeaderButtonYellow } from "./style/Buttons";
 
-
 export const Layout = () => {
     return <>
         <header>
