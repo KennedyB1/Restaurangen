@@ -99,3 +99,10 @@ export const BookingWrapper = styled.div `
     margin: 0 auto;
     height: 100vh;
     `
+
+export const DashboardWrapper = styled.div `
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;`

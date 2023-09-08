@@ -26,6 +26,10 @@ export const LightP = styled(Paragraf) `
 export const LightPCentered = styled(LightP) `
 text-align: center;`;
 
+export const LightPSmaller = styled(LightP) `
+    font-size: 1rem;
+`
+
 export const LightPSmall = styled(LightP) `
     font-size: 0.8rem;
 `
