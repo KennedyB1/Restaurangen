@@ -5,6 +5,8 @@ import { Dashboard } from "./Dashboard";
 import { SignIn } from "./auth/SignIn";
 import { SignUp } from "./auth/SignUp";
 import { auth } from "../firebase";
+import { BookingSection } from "./style/BookingStyle";
+import { BookingWrapper } from "./style/Wrappers";
 
 export const Admin = () => {
   const [authUser, setAuthUser] = useState<User | null>(null);
@@ -39,14 +41,17 @@ export const Admin = () => {
       {authUser ? (
         <>
           <Dashboard />
-          <p>Inloggad som {authUser.email}</p>
           <button onClick={userSignOut}>Logga ut</button>
         </>
       ) : (
         <>
-          <SignIn />
-          <SignUp />
-          <p>Inte inloggad</p>
+        <BookingSection>
+            <BookingWrapper>
+                <SignIn />
+                <SignUp />
+            </BookingWrapper>
+        </BookingSection>
+          
         </>
       )}
     </div>
