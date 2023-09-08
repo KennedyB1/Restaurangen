@@ -24,8 +24,13 @@ export const LightP = styled(Paragraf) `
     color: #F3EDC9;
 `
 export const LightPCentered = styled(LightP) `
-text-align: center;`;
+    text-align: center;`;
 
 export const LightPSmall = styled(LightP) `
     font-size: 0.8rem;
+`
+
+export const CookieP = styled(LightP) `
+    margin-bottom: 0px;
+    padding: 20px 25%;
 `
