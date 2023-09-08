@@ -2,6 +2,9 @@ import { faCopy, faEnvelope, faLocationDot, faPhone } from '@fortawesome/free-so
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './styled/Contact.css'; 
 
+
+import { H2centered } from "./style/Title";
+
 export const ContactInformations = () => {
   const phoneNumber = '0123456789';
   const email = 'ham@burger.now';
@@ -19,7 +22,8 @@ export const ContactInformations = () => {
 
   return (
     <div className='contactInformation'>
-    <span>Kontaktinformation</span>
+    <H2centered>Kontaktinformation</H2centered>
+      
       <ul className='contactUl'>
         <li>
         <a href={"tel:" + phoneNumber}>
@@ -73,6 +77,7 @@ export const ContactInformations = () => {
           </span>
         </li>
       </ul>
+      
     </div>
   );
 };

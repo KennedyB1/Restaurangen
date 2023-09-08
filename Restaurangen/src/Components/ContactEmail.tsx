@@ -2,6 +2,10 @@
 import emailjs from '@emailjs/browser';
 import { useState } from 'react';
 import './styled/formContact.css'
+import { H2centered } from './style/Title';
+import { Form, Input, Textarea } from './style/Form';
+import { LightPSmall } from './style/P';
+import { ButtonYellow } from './style/Buttons';
 
 export const ContactUs = () => {
 
@@ -42,23 +46,23 @@ export const ContactUs = () => {
   };
 
   return (
-    <form onSubmit={sendEmail} className='contactForm'>
-  <span>Kontaktformulär</span>
-  <label>Namn: <br />
-    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-  </label>
+    <Form onSubmit={sendEmail} className='contactForm'>
+  <H2centered>Kontaktformulär</H2centered>
   
-  <label>E-post:<br />
-    <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-  </label>
+    <Input type="text" placeholder="Namn" value={name} onChange={(e) => setName(e.target.value)} />
   
-  <label>Meddelande:<br />
-    <textarea value={message} onChange={(e) => setMessage(e.target.value)} />
-  </label>
   
-  <input type="submit" value="Send" />
+  
+    <Input type="email" placeholder="E-post" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+  
+    <LightPSmall>Meddelande:</LightPSmall>
+    
+    <Textarea value={message}  onChange={(e) => setMessage(e.target.value)} />
+  
+  
+  <ButtonYellow type="submit" value="Send">Skicka</ButtonYellow>
   {isEmailSent && <span>Meddelandet har skickats!</span>}
-</form>
+</Form>
 
   );
 };
