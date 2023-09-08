@@ -3,11 +3,11 @@ import { restaurantIdContext } from "../contexts/restaurantIdContext";
 import { deleteBooking, getBookings, getCostumer } from "../services/restaurantServices";
 import { ICostumer, IFetchedBooking } from "../interfaces/interfaces";
 import { BookingSection } from "./style/BookingStyle";
-import { H2, H2centered } from "./style/Title";
+import { H2centered } from "./style/Title";
 import Datepicker from "./DatePicker";
-import { LightPSmaller } from "./style/P";
-import { ButtonGreen, ButtonRed } from "./style/Buttons";
 import { DashboardWrapper } from "./style/Wrappers";
+import ChangeBooking from "./ChangeBooking";
+import EditBooking from "./EditBooking";
 
 export const Dashboard = () => {
   const restaurantId = useContext(restaurantIdContext);
@@ -15,7 +15,9 @@ export const Dashboard = () => {
   const [bookingDate, setBookingDate] = useState<Date>(new Date());
   const [foundBookings, setFoundBookings] = useState<IFetchedBooking[]>([]);
   const [costumers, setCostumers] = useState<ICostumer[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false); // Loading state
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [view, setView] = useState<string>('1');
+  const [bookingId, setBookingId] = useState<string>('');
 
 
   useEffect(() => {
@@ -49,35 +51,46 @@ export const Dashboard = () => {
       setIsLoading(false); // Set loading to false when data is fetched
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     getCostumersArr();}, [bookingDate, bookings]);
-//   }, [bookingDate, bookings]);
 
     const removeBooking = async (id: string) => {
         await deleteBooking(id);
         setBookings(bookings.filter((booking) => booking._id !== id));
     }
 
-  return (
-    <BookingSection>
-        <DashboardWrapper>
-            <H2centered>Välj datum för att visa bokningar</H2centered>
-            <Datepicker setDate={setBookingDate} date={bookingDate} />
-            {isLoading ? (
-            <p>Loading...</p>
-            ) : (
-            costumers.map((costumer, i) => (
-                <div key={foundBookings[i]._id}>
-                <H2>
-                {costumer.name} {costumer.lastname}
-                </H2>
-                <LightPSmaller>Tid: {foundBookings[i].time}, Antal personer: {foundBookings[i].numberOfGuests}</LightPSmaller>
-                <ButtonGreen>Ändra bokning</ButtonGreen><ButtonRed onClick={() => removeBooking(foundBookings[i]._id)}>Ta bort bokning</ButtonRed>
-                </div>
-            ))
-            )}
-        </DashboardWrapper>
-    </BookingSection>
-  );
+    useEffect(() => {
+        console.log(view);
+        console.log(bookingId);
+    }, [setView, setBookingId]);
+
+    if(view === '1') {
+        return (
+          <BookingSection>
+              <DashboardWrapper>
+                  <H2centered>Välj datum för att visa bokningar</H2centered>
+                  <Datepicker setDate={setBookingDate} date={bookingDate} />
+                  {isLoading ? (
+                  <p>Loading...</p>
+                  ) : <ChangeBooking 
+                  foundBookings={foundBookings} 
+                  costumers={costumers} 
+                  removeBooking={removeBooking}
+                  setView={setView}
+                  setBookingId = {setBookingId}/>}
+              </DashboardWrapper>
+          </BookingSection>
+        );
+    } else if(view === '2'){
+        return (
+            <BookingSection>
+                <DashboardWrapper>
+                    <EditBooking 
+                    bookingId={bookingId}
+                    bookings={bookings}
+                    costumers = {costumers} />
+                </DashboardWrapper>
+            </BookingSection>
+        )
+    }
 };
 
