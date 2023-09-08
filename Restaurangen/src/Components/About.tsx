@@ -12,8 +12,9 @@ export const About = () => {
                 <HeaderH2Static> Om oss </HeaderH2Static>
                 <StaticPartWrapper>
                     <StaticTextWrapper>
-                        <Paragraf>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</Paragraf>
-                        <Paragraf>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Paragraf>
+                    <Paragraf>Välkomna till oss på Hamburgerian. Hamngatan 1 i Halmstad, med utsikt över den vackra hamnen och bara ett stenkast från tågstation och centrum.</Paragraf>
+                    <Paragraf>Hamburgerian är en liten mysig restaurang med fokus på kvalité och vardagslyx. Alla våra menyer är tillagade från grunden med ekologiska och närproducerade varor. Köttet är från svenska gårdar där betesdjuren fått gå ute och äta gräs och örter vilket medföljer att köttet blir naturligt mört och smakrikt. Tillbehören är noga balanserade för att ge en gastronomisk upplevelse som alla restaurangbesök ska ge. </Paragraf>
+                    <Paragraf>Välkomna till oss på Hamburgerian! </Paragraf>
                     </StaticTextWrapper>
                     <ImageStaticPage src="src/assets/About.jpg"></ImageStaticPage>
                 </StaticPartWrapper>
