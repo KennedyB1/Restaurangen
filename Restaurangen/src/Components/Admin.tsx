@@ -1,65 +1,55 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
-import { Dashboard } from './Dashboard';
+import { useEffect, useState } from "react";
+
+import { onAuthStateChanged, signOut, User } from "firebase/auth";
+import { Dashboard } from "./Dashboard";
+import { SignIn } from "./auth/SignIn";
+import { SignUp } from "./auth/SignUp";
+import { auth } from "../firebase";
 
 export const Admin = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate(); 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
+  const [authUser, setAuthUser] = useState<User | null>(null);
 
-    const authorizedAdmins = [
-      { username: '123', password: '123' },
-      
-    ];
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(user);
+      } else {
+        setAuthUser(null);
+      }
+    });
 
-    const isAuthenticated = authorizedAdmins.some(
-      (admin) => admin.username === username && admin.password === password
-    );
+    return () => {
+      listen();
+    };
+  }, []);
 
-    if (isAuthenticated) {
-      setIsLoggedIn(true);
-      
-      console.log('Logged in successfully!');
-      navigate('/admin'); 
-    } else {
-      console.error('Authentication failed.');
-    }
+  const userSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log('signed out');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
-  if (!isLoggedIn) {
+
   return (
     <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+        
+      {authUser ? (
+        <>
+          <Dashboard />
+          <p>Inloggad som {authUser.email}</p>
+          <button onClick={userSignOut}>Logga ut</button>
+        </>
+      ) : (
+        <>
+          <SignIn />
+          <SignUp />
+          <p>Inte inloggad</p>
+        </>
+      )}
     </div>
   );
-} 
-return (
-    <>
-      <Dashboard />
-      
-    </>
-  );
+  
 };
