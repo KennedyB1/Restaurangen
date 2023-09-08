@@ -76,7 +76,9 @@ export const IconImageHeader = styled(IconImage) `
     @media (min-width: 1200px) {
         top: 0px;
         padding: 15px;
-        height: 80px;
+        padding-bottom: 15px;
+        height: 50px;
+        
     }
 `
 

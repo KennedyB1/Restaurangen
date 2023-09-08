@@ -9,24 +9,26 @@ export const Nav = styled.nav `
         display: inline-block;
         top:30px;
         background-color: transparent;
+        margin: 0px;
     }
     @media (min-width: 1200px) {
         
     }
 `
 export const HeaderUl = styled.ul`
-    width: 50vw;
+    width: 75vw;
+    margin: 0px;
     
 `
 
 export const HeaderLi = styled.li `
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     margin: 15px;
 
     @media (min-width: 768px) {
         position: relative;
         display: inline-block;
-        bottom: 20px;
+        bottom: 7px;
         font-size: 1rem;
         padding-left: 3.5%;
         font-family: 'Poppins', sans-serif;
@@ -43,8 +45,8 @@ export const HeaderLi = styled.li `
 
     @media (min-width: 1400px) {
         padding-left: 10%;
-        font-size: 1.5rem;
-        bottom: 20px;
+        font-size: 1.3rem;
+        bottom: 8px;
     }
 `
 
