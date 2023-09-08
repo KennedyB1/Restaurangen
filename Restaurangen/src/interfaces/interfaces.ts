@@ -39,7 +39,7 @@ export interface IFetchedBooking {
 }
 
 export interface ICostumer {
-  id: string;
+  _id: string;
   name: string;
   lastname: string;
   email: string;

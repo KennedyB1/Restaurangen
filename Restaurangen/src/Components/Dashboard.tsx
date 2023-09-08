@@ -87,7 +87,8 @@ export const Dashboard = () => {
                     <EditBooking 
                     bookingId={bookingId}
                     bookings={bookings}
-                    costumers = {costumers} />
+                    costumers = {costumers}
+                    setView = {setView} />
                 </DashboardWrapper>
             </BookingSection>
         )
