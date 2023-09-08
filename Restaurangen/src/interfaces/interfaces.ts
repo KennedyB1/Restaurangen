@@ -37,3 +37,11 @@ export interface IFetchedBooking {
   numberOfGuests: number;
   customerId: string;
 }
+
+export interface ICostumer {
+  id: string;
+  name: string;
+  lastname: string;
+  email: string;
+  phone: string;
+}

@@ -76,3 +76,15 @@ export const updateBooking = async(booking: IBookingUpdate) => {
     console.log(error)
   }
 }
+
+// HÄMTA KUNDUPPGIFTER
+
+export const getCostumer = async(customerId: string) => {
+  try{
+    const response = await axios.get(`${BASE_URL}/customer/${customerId}`)
+    return response.data;
+  }
+  catch(error){
+    console.log(error)
+  }
+}
