@@ -1,6 +1,9 @@
 import {useState} from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import { H2centered } from "../style/Title";
+import { Form, Input } from "../style/Form";
+import { ButtonYellow } from "../style/Buttons";
 export const SignUp = () =>{
 
 const [email, setEmail] = useState('')
@@ -19,12 +22,12 @@ createUserWithEmailAndPassword(auth, email, password)
     return (    
 
         <div>
-            <form onSubmit={SignUp}>
-                <h1>sign up</h1>
-                <input type="email" placeholder="email" onChange={(e) =>setEmail(e.target.value)} value={email}></input>
-                <input type="password" placeholder="password" onChange={(e) =>setPassword(e.target.value)} value={password}></input>
-                <button type="submit">Click</button>
-            </form>
+            <Form onSubmit={SignUp}>
+                <H2centered>Skapa ny inloggning</H2centered>
+                <Input type="email" placeholder="E-post" onChange={(e) =>setEmail(e.target.value)} value={email}></Input>
+                <Input type="password" placeholder="Lösenord" onChange={(e) =>setPassword(e.target.value)} value={password}></Input>
+                <ButtonYellow type="submit">Click</ButtonYellow>
+            </Form>
         </div>
 
 
