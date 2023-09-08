@@ -1,8 +1,8 @@
 import axios from "axios"
 import { IBooking, IBookingUpdate, IRestaurant } from "../interfaces/interfaces";
 
-const BASE_URL = 'https://school-restaurant-api.azurewebsites.net';
 
+const BASE_URL = import.meta.env.VITE_BASE_URL
 // SKAPA RESTAURANG. GÖR ENDAST EN GÅNG!
 
 export const createRestaurant = async(restaurant: IRestaurant) => {
