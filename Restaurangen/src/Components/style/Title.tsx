@@ -73,6 +73,12 @@ export const H2centered = styled(H2)`
     line-height: 3rem;
     margin-bottom: 50px;
 `
+
+export const CookieH2 = styled(H2) `
+    margin-top: 0px;
+    padding: 20px 25%;
+    padding-top: 120px;
+`
 /*
 @media (min-width: 768px) {
 

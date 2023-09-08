@@ -52,7 +52,7 @@ export const Layout = () => {
                 <IconImage src="src/assets/Burger.jpg" />
                 <FooterSpan><Link to={"/kontakt"} style={{ color: '#F3EDC9' }}>Kontakt</Link></FooterSpan>
                 <FooterSpan><Link to={"/om"} style={{ color: '#F3EDC9' }}>Om oss</Link></FooterSpan>
-                <FooterSpan><Link to={""} style={{ color: '#F3EDC9' }}>Cookies</Link></FooterSpan>
+                <FooterSpan><Link to={"/cookie"} style={{ color: '#F3EDC9' }}>Cookies</Link></FooterSpan>
                 <FooterSpan><Link to={"/bokning"} style={{ color: '#F3EDC9' }}>Boka bord</Link></FooterSpan>
                 <FooterSpan><Link to={"/admin"} style={{ color: '#F3EDC9' }}>Adminläge</Link></FooterSpan>
             </BlackWrapperFotter>
