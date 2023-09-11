@@ -5,6 +5,19 @@ import { MenuPartWrapper, LightWrapper, MenuTextWrapper, StaticPartWrapper, Stat
 import { ImageStatic } from "./style/Image"
 
 export const Menu = () => {
+
+const menu1 = "Cheese Burger"
+const menu2 = "Bacon Burger"
+const menu3 = "The Classic"
+const menu4 = "Veg Burger"
+const menu5 = "BBQ Burger"
+
+const text1 = "- cheddarost, lök, pickels, tomatsås och senap"
+const text2 = "-  bacon, cheddarost, lök, pickels, mayo"
+const text3 = "-  cheddarost, tomat, sallad, lök, pickels, mayo"
+const text4 = "-  halloumi, cheddarost, syltad rödlök, tomat, sallad, chili mayo "
+const text5 = "-  cheddarost, sallad, tomat, rostad lök, BBQ mayo "
+
     return <>
         <ImageStatic src="src/assets/mainImage.jpg"></ImageStatic>
         <LightWrapper>
@@ -13,24 +26,24 @@ export const Menu = () => {
                 <StaticPartWrapper>
                     <MenuTextWrapper>
                         <MenuPartWrapper>
-                            <HeaderH3Menu>Cheese Burger</HeaderH3Menu>
-                            <MenuParagraf>- cheddarost, lök, pickels, tomatsås och senap</MenuParagraf>
+                            <HeaderH3Menu>{menu1}</HeaderH3Menu>
+                            <MenuParagraf>{text1}</MenuParagraf>
                         </MenuPartWrapper>
                         <MenuPartWrapper>
-                            <HeaderH3Menu>Bacon Burger</HeaderH3Menu>
-                            <MenuParagraf>-  bacon, cheddarost, lök, pickels, mayo</MenuParagraf>
+                            <HeaderH3Menu>{menu2}</HeaderH3Menu>
+                            <MenuParagraf>{text2}</MenuParagraf>
                         </MenuPartWrapper>
                         <MenuPartWrapper>
-                            <HeaderH3Menu>The Classic</HeaderH3Menu>
-                            <MenuParagraf>-  cheddarost, tomat, sallad, lök, pickels, mayo</MenuParagraf>
+                            <HeaderH3Menu>{menu3}</HeaderH3Menu>
+                            <MenuParagraf>{text3}</MenuParagraf>
                         </MenuPartWrapper>
                         <MenuPartWrapper>
-                            <HeaderH3Menu>Veg Burger</HeaderH3Menu>
-                            <MenuParagraf>-  halloumi, cheddarost, syltad rödlök, tomat, sallad, chili mayo </MenuParagraf>
+                            <HeaderH3Menu>{menu4}</HeaderH3Menu>
+                            <MenuParagraf>{text4}</MenuParagraf>
                         </MenuPartWrapper>
                         <MenuPartWrapper>
-                            <HeaderH3Menu>BBQ Burger</HeaderH3Menu>
-                            <MenuParagraf>-  cheddarost, sallad, tomat, rostad lök, BBQ mayo </MenuParagraf>
+                            <HeaderH3Menu>{menu5}</HeaderH3Menu>
+                            <MenuParagraf>{text5}</MenuParagraf>
                         </MenuPartWrapper>
                     </MenuTextWrapper>
                     <ImageMenu src="src/assets/Menu.jpg"></ImageMenu>
