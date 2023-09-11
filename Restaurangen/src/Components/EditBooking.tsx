@@ -11,21 +11,24 @@ import { format } from "date-fns";
 interface IEditBookingProps {
   bookingId: string;
   bookings: IFetchedBooking[];
+  setBookings: (bookings: IFetchedBooking[]) => void;
   customers: ICustomer[];
   setView: (view: string) => void;
+  setIsLoading: (isLoading: boolean) => void;
 }
 
 export default function EditBooking(props: IEditBookingProps) {
 
   const booking = props.bookings.find((booking) => booking._id === props.bookingId);
   const [time, setTime] = useState<string>('');
-  const [bookingDate, setBookingDate] = useState<Date>();
+  const [bookingDate, setBookingDate] = useState<Date>(new Date());
   const [numberOfGuests, setNumberOfGuests] = useState<string>('');
+
   let costumer: ICustomer | undefined = undefined;
 
   useEffect(() => {
     if(booking !== undefined) {
-      setTime(JSON.stringify(booking.time));
+      setTime(booking.time);
       setBookingDate(stringToDate(booking.date));
       setNumberOfGuests(JSON.stringify(booking.numberOfGuests));
     }
@@ -36,7 +39,6 @@ export default function EditBooking(props: IEditBookingProps) {
   const update = async (e: FormEvent) => {
     e.preventDefault();
     if(booking !== undefined) {
-      console.log(booking)
       const bookingData: IBookingUpdate = {
       date: format(bookingDate, 'yyyy-MM-dd'),
       time: time,
@@ -47,9 +49,8 @@ export default function EditBooking(props: IEditBookingProps) {
      }
      
     await updateBooking(bookingData);
-  
     props.setView('1');
-    }
+  }
 }
   
   return (
@@ -57,7 +58,7 @@ export default function EditBooking(props: IEditBookingProps) {
       <H2centered>Redigera {costumer === undefined ? '{name}' : costumer.name}s bokning</H2centered>
       <form onSubmit={(e: FormEvent) => update(e)}>
       <Datepicker date={bookingDate} setDate={setBookingDate}/>
-      <Select onChange={(e : ChangeEvent<HTMLSelectElement>) => setTime(e.target.value)} required>
+      <Select onChange={(e : ChangeEvent<HTMLSelectElement>) => setTime(e.target.value)} value={booking?.time} required>
           <option value="18:00">18:00</option>
           <option value="21:00">21:00</option>
       </Select>
@@ -66,6 +67,7 @@ export default function EditBooking(props: IEditBookingProps) {
           min="1" 
           max="24" 
           onChange={(e : ChangeEvent<HTMLInputElement>) => setNumberOfGuests(e.target.value)}
+          value={booking?.numberOfGuests}
           required>
       </Input>
       <ButtonGreen type="submit">Uppdatera bokning</ButtonGreen>

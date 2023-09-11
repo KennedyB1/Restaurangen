@@ -20,23 +20,25 @@ export const Dashboard = () => {
   const [bookingId, setBookingId] = useState<string>('');
 
   useEffect(() => {
+        console.log('runs')
+        fetchData();
+    }, [restaurantId, view]);
+    
     async function fetchData() {
       setIsLoading(true); 
       const bookingsData = await getBookings(restaurantId);
       setBookings(bookingsData);
       setIsLoading(false);
     }
-    fetchData();
-  }, [restaurantId]);
 
   useEffect(() => {
+    console.log('runs2')
     async function getCustomersArr() {
       const filteredBookings = bookings.filter((booking) => {
         return booking.date === bookingDate.toISOString().slice(0, 10);
       });
 
       setFoundBookings(filteredBookings)
-      console.log(filteredBookings);
 
       setIsLoading(true);
       const costumerPromises = filteredBookings.map(async (booking) => {
@@ -52,7 +54,8 @@ export const Dashboard = () => {
       setIsLoading(false);
     }
 
-    getCustomersArr();}, [bookingDate, setBookingDate]);
+    getCustomersArr();
+    }, [bookingDate, setBookingDate, bookings]);
 
     const removeBooking = async (id: string) => {
         await deleteBooking(id);
@@ -88,8 +91,11 @@ export const Dashboard = () => {
                     <EditBooking 
                     bookingId={bookingId}
                     bookings={bookings}
+                    setBookings={setBookings}
                     customers = {customers}
-                    setView = {setView} />
+                    setView = {setView}
+                    setIsLoading={setIsLoading}
+                     />
                 </DashboardWrapper>
             </BookingSection>
         )
