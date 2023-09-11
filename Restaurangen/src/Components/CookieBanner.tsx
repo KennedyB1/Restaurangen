@@ -16,9 +16,6 @@ export const CookieBanner = () => {
         }
     }
 
-    
-    
-    
     return <>
         <CookieDivBanner className={cookieDiv}>
             <CookieInfoH3>Cookies</CookieInfoH3>
