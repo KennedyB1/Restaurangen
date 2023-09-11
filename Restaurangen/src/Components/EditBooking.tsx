@@ -6,6 +6,7 @@ import stringToDate from "../functions/stringToDate";
 import { Input, Select } from "./style/Form";
 import { ButtonGreen } from "./style/Buttons";
 import { updateBooking } from "../services/restaurantServices";
+import { format } from "date-fns";
 
 interface IEditBookingProps {
   bookingId: string;
@@ -37,13 +38,14 @@ export default function EditBooking(props: IEditBookingProps) {
     if(booking !== undefined) {
       console.log(booking)
       const bookingData: IBookingUpdate = {
-      date: bookingDate?.toISOString().slice(0, 10),
+      date: format(bookingDate, 'yyyy-MM-dd'),
       time: time,
       numberOfGuests: parseInt(numberOfGuests),
       customerId: booking.customerId,
       restaurantId: booking.restaurantId,
       id: booking._id
      }
+     
     await updateBooking(bookingData);
   
     props.setView('1');

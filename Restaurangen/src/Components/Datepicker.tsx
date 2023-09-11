@@ -1,4 +1,6 @@
-import DatePicker from "react-datepicker";
+import DatePicker, { registerLocale } from "react-datepicker";
+import sv from 'date-fns/locale/sv';
+registerLocale('sv', sv)
 
 interface IDatepickerProps {
     setDate: (date: Date) => void;
@@ -10,9 +12,14 @@ export default function Datepicker (props: IDatepickerProps) {
   return (
     <DatePicker 
     //filterDate={passedDates}
+    locale='sv'
     selected={props.date} 
     placeholderText="Välj datum"
-    onChange={(date: Date) => props.setDate(date)}
+    onChange={(date: Date) => 
+      {
+        console.log(date);
+        props.setDate(date)
+      }}
     dateFormat="yyyy-MM-dd"
     required>
   </DatePicker>
