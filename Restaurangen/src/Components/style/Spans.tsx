@@ -19,3 +19,12 @@ export const FooterSpan = styled.span `
         margin-left: 12%;
     } 
 `
+
+export const DarkSpan = styled.span `
+    color: black;
+    position: relative;
+    top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    padding-right: 30px;
+`

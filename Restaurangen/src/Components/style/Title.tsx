@@ -22,6 +22,8 @@ export const HeaderH1 = styled.h1 `
 export const HeaderH2Static = styled.h2`
     display: flex;
     justify-content: center;
+    margin-top: 0px;
+    padding-top:25px;
     font-family: 'Nixie One', cursive;
     font-size: 1.4rem;
 
@@ -78,6 +80,10 @@ export const CookieH2 = styled(H2) `
     margin-top: 0px;
     padding: 20px 25%;
     padding-top: 120px;
+`
+
+export const CookieInfoH3 = styled(HeaderH2Static) `
+    font-size: 2rem;
 `
 /*
 @media (min-width: 768px) {
