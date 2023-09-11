@@ -58,7 +58,7 @@ export default function EditBooking(props: IEditBookingProps) {
       <H2centered>Redigera {costumer === undefined ? '{name}' : costumer.name}s bokning</H2centered>
       <form onSubmit={(e: FormEvent) => update(e)}>
       <Datepicker date={bookingDate} setDate={setBookingDate}/>
-      <Select onChange={(e : ChangeEvent<HTMLSelectElement>) => setTime(e.target.value)} value={booking?.time} required>
+      <Select onChange={(e : ChangeEvent<HTMLSelectElement>) => setTime(e.target.value)} required>
           <option value="18:00">18:00</option>
           <option value="21:00">21:00</option>
       </Select>
@@ -67,7 +67,6 @@ export default function EditBooking(props: IEditBookingProps) {
           min="1" 
           max="24" 
           onChange={(e : ChangeEvent<HTMLInputElement>) => setNumberOfGuests(e.target.value)}
-          value={booking?.numberOfGuests}
           required>
       </Input>
       <ButtonGreen type="submit">Uppdatera bokning</ButtonGreen>
