@@ -7,6 +7,7 @@ import { HeaderH1 } from "./style/Title";
 import { HeaderButtonYellow } from "./style/Buttons";
 import "../hamburger.css"
 import { useState } from "react";
+import { CookieBanner } from "./CookieBanner";
 
 export const Layout = () => {
     
@@ -45,7 +46,9 @@ export const Layout = () => {
             </BlackWrapperHeader>
         </header>
         <main>
+            <CookieBanner></CookieBanner>
             <Outlet></Outlet>
+            
         </main>
         <footer>
             <BlackWrapperFotter>

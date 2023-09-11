@@ -38,6 +38,16 @@ export const LightWrapper = styled(Wrapper)`
     }
 `
 
+export const CookieDivBanner = styled.div `
+    height: 150px;
+    width: 100vw;
+    background-color: white;
+    position: fixed;
+    border: 1px solid black;
+    border-radius: 5px;
+    z-index: 15;
+`
+
 export const StaticWrapper = styled.div`
     background-color: white;
     width: 80%;
@@ -98,11 +108,18 @@ export const BookingWrapper = styled.div `
     align-items: center;
     margin: 0 auto;
     height: 100vh;
-    `
+`
 
 export const DashboardWrapper = styled.div `
-margin: 0 auto;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;`
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+export const CookieContainerDiv = styled.div `
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+`
