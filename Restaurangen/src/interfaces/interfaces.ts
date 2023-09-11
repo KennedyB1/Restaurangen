@@ -23,10 +23,10 @@ export interface IBooking {
 export interface IBookingUpdate {
   id: string;
   restaurantId: string;
-  date: string;
+  date: string | undefined;
   time: string;
   numberOfGuests: number;
-  costumerId: string;
+  customerId: string;
 }
 
 export interface IFetchedBooking {
@@ -38,7 +38,7 @@ export interface IFetchedBooking {
   customerId: string;
 }
 
-export interface ICostumer {
+export interface ICustomer {
   _id: string;
   name: string;
   lastname: string;

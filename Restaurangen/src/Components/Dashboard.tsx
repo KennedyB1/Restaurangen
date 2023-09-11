@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { restaurantIdContext } from "../contexts/restaurantIdContext";
-import { deleteBooking, getBookings, getCostumer } from "../services/restaurantServices";
-import { ICostumer, IFetchedBooking } from "../interfaces/interfaces";
+import { deleteBooking, getBookings, getCustomer } from "../services/restaurantServices";
+import { ICustomer, IFetchedBooking } from "../interfaces/interfaces";
 import { BookingSection } from "./style/BookingStyle";
 import { H2centered } from "./style/Title";
 import Datepicker from "./DatePicker";
@@ -14,44 +14,45 @@ export const Dashboard = () => {
   const [bookings, setBookings] = useState<IFetchedBooking[]>([]);
   const [bookingDate, setBookingDate] = useState<Date>(new Date());
   const [foundBookings, setFoundBookings] = useState<IFetchedBooking[]>([]);
-  const [costumers, setCostumers] = useState<ICostumer[]>([]);
+  const [customers, setCustomers] = useState<ICustomer[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [view, setView] = useState<string>('1');
   const [bookingId, setBookingId] = useState<string>('');
 
-
   useEffect(() => {
     async function fetchData() {
-      setIsLoading(true); // Set loading to true when fetching data
+      setIsLoading(true); 
       const bookingsData = await getBookings(restaurantId);
       setBookings(bookingsData);
-      setIsLoading(false); // Set loading to false when data is fetched
+      setIsLoading(false);
     }
-
     fetchData();
   }, [restaurantId]);
 
   useEffect(() => {
-    async function getCostumersArr() {
+    async function getCustomersArr() {
       const filteredBookings = bookings.filter((booking) => {
         return booking.date === bookingDate.toISOString().slice(0, 10);
       });
-      setFoundBookings(filteredBookings);
 
-      setIsLoading(true); // Set loading to true when fetching data
+      setFoundBookings(filteredBookings)
+      console.log(filteredBookings);
+
+      setIsLoading(true);
       const costumerPromises = filteredBookings.map(async (booking) => {
-        const costumerArray = await getCostumer(booking.customerId);
+        const costumerArray = await getCustomer(booking.customerId);
+        if (costumerArray.length > 0) {
         return costumerArray[0];
+        }
+        return
       });
       
-      const costumersData = await Promise.all(costumerPromises);
-      setCostumers(costumersData);
-      console.log(costumers);
-      console.log(foundBookings)
-      setIsLoading(false); // Set loading to false when data is fetched
+      const customersData = await Promise.all(costumerPromises);
+      setCustomers(customersData);
+      setIsLoading(false);
     }
 
-    getCostumersArr();}, [bookingDate, bookings]);
+    getCustomersArr();}, [bookingDate, setBookingDate]);
 
     const removeBooking = async (id: string) => {
         await deleteBooking(id);
@@ -61,7 +62,7 @@ export const Dashboard = () => {
     useEffect(() => {
         console.log(view);
         console.log(bookingId);
-    }, [setView, setBookingId]);
+    }, [setView, setBookings]);
 
     if(view === '1') {
         return (
@@ -73,7 +74,7 @@ export const Dashboard = () => {
                   <p>Loading...</p>
                   ) : <ChangeBooking 
                   foundBookings={foundBookings} 
-                  costumers={costumers} 
+                  customers={customers} 
                   removeBooking={removeBooking}
                   setView={setView}
                   setBookingId = {setBookingId}/>}
@@ -87,7 +88,7 @@ export const Dashboard = () => {
                     <EditBooking 
                     bookingId={bookingId}
                     bookings={bookings}
-                    costumers = {costumers}
+                    customers = {customers}
                     setView = {setView} />
                 </DashboardWrapper>
             </BookingSection>

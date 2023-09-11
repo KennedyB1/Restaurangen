@@ -1,5 +1,5 @@
-import { useState, ChangeEvent } from "react";
-import { IFetchedBooking, ICostumer, IBookingUpdate } from "../interfaces/interfaces";
+import { useState, ChangeEvent, useEffect, FormEvent } from "react";
+import { IFetchedBooking, ICustomer, IBookingUpdate } from "../interfaces/interfaces";
 import Datepicker from "./DatePicker";
 import { H2centered } from "./style/Title";
 import stringToDate from "../functions/stringToDate";
@@ -10,39 +10,51 @@ import { updateBooking } from "../services/restaurantServices";
 interface IEditBookingProps {
   bookingId: string;
   bookings: IFetchedBooking[];
-  costumers: ICostumer[];
+  customers: ICustomer[];
   setView: (view: string) => void;
 }
 
 export default function EditBooking(props: IEditBookingProps) {
+
   const booking = props.bookings.find((booking) => booking._id === props.bookingId);
-  const costumer = props.costumers.find((costumer) => costumer._id === booking?.customerId);
-  const [time, setTime] = useState<string>('JSON.stringify(booking?.time)');
-  const [date, setDate] = useState<Date>(stringToDate(booking.date));
-  const [numberOfGuests, setNumberOfGuests] = useState<string>(JSON.stringify(booking?.numberOfGuests));
-  console.log(costumer);
-  console.log(booking)
-  console.log(props.bookingId);
+  const [time, setTime] = useState<string>('');
+  const [bookingDate, setBookingDate] = useState<Date>();
+  const [numberOfGuests, setNumberOfGuests] = useState<string>('');
+  let costumer: ICustomer | undefined = undefined;
 
-  const updateBooking = async () => {
+  useEffect(() => {
+    if(booking !== undefined) {
+      setTime(JSON.stringify(booking.time));
+      setBookingDate(stringToDate(booking.date));
+      setNumberOfGuests(JSON.stringify(booking.numberOfGuests));
+    }
+  }, []);
+  
+  costumer = props.customers.find((customer) => customer._id === booking?.customerId);
 
-    const bookingData: IBookingUpdate = {
-      date: date.toISOString().slice(0, 10),
+  const update = async (e: FormEvent) => {
+    e.preventDefault();
+    if(booking !== undefined) {
+      console.log(booking)
+      const bookingData: IBookingUpdate = {
+      date: bookingDate?.toISOString().slice(0, 10),
       time: time,
       numberOfGuests: parseInt(numberOfGuests),
-      customerId: booking?.customerId,
+      customerId: booking.customerId,
       restaurantId: booking.restaurantId,
-      _id: booking?._id
-    }
+      id: booking._id
+     }
     await updateBooking(bookingData);
+  
     props.setView('1');
-  }
-
+    }
+}
+  
   return (
     <div>
-      <H2centered>Redigera {costumer?.name}s bokning</H2centered>
-      <form onSubmit={updateBooking}>
-      <Datepicker date={date} setDate={setDate}/>
+      <H2centered>Redigera {costumer === undefined ? '{name}' : costumer.name}s bokning</H2centered>
+      <form onSubmit={(e: FormEvent) => update(e)}>
+      <Datepicker date={bookingDate} setDate={setBookingDate}/>
       <Select onChange={(e : ChangeEvent<HTMLSelectElement>) => setTime(e.target.value)} required>
           <option value="18:00">18:00</option>
           <option value="21:00">21:00</option>

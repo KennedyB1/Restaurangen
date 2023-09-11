@@ -1,4 +1,4 @@
-import { ICostumer, IFetchedBooking } from "../interfaces/interfaces";
+import { ICustomer, IFetchedBooking } from "../interfaces/interfaces";
 import { ButtonGreen, ButtonRed } from "./style/Buttons";
 import { LightPSmaller } from "./style/P";
 import { H2 } from "./style/Title";
@@ -6,7 +6,7 @@ import { H2 } from "./style/Title";
 
 interface IChangeBookingProps {
   foundBookings: IFetchedBooking[];
-  costumers: ICostumer[];
+  customers: ICustomer[];
   removeBooking: (id: string) => void;
   setView: (view: string) => void;
   setBookingId: (id: string) => void;
@@ -19,10 +19,10 @@ export default function ChangeBooking(props: IChangeBookingProps) {
   }
 
   return (
-      props.costumers.map((costumer, i) => (
+      props.customers.map((customer, i) => (
           <div key={props.foundBookings[i]._id}>
           <H2>
-          {costumer.name} {costumer.lastname}
+          {customer.name} {customer.lastname}
           </H2>
           <LightPSmaller>Tid: {props.foundBookings[i].time}, Antal personer: {props.foundBookings[i].numberOfGuests}</LightPSmaller>
           <ButtonRed onClick={() => props.removeBooking(props.foundBookings[i]._id)}>Ta bort bokning</ButtonRed>
