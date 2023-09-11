@@ -12,6 +12,7 @@ export const FooterSpan = styled.span `
     @media (min-width: 768px) {
         margin-left: 7.5%;
         font-size: medium;
+        bottom: 16px;
     }
 
     @media (min-width: 1200px) {

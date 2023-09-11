@@ -55,7 +55,9 @@ export const IconImage = styled.img `
     height: 30px;
     @media (min-width: 768px) {
         padding: 5px;
-        height: 60px;
+        height: 40px;
+        padding-top: 10px;
+        padding-left: 10px;
     }   
 `
 export const IconImageHeader = styled(IconImage) `
@@ -65,7 +67,7 @@ export const IconImageHeader = styled(IconImage) `
         padding: 10px;
         height: 40px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 820px) {
         cursor:none;
         position: relative;
         top: 15px;
@@ -76,7 +78,9 @@ export const IconImageHeader = styled(IconImage) `
     @media (min-width: 1200px) {
         top: 0px;
         padding: 15px;
-        height: 80px;
+        padding-bottom: 15px;
+        height: 50px;
+        
     }
 `
 

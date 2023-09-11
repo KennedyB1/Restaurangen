@@ -13,8 +13,8 @@ export const HeaderH1 = styled.h1 `
     }
 
     @media (min-width: 1200px) {
-        bottom: 30px;
-        font-size: 4rem;
+        bottom: 20px;
+        font-size: 3.2rem;
 }
 
 `
@@ -30,7 +30,7 @@ export const HeaderH2Static = styled.h2`
     }
 
     @media (min-width: 1200px) {
-        font-size: 3.5rem;
+        font-size: 3rem;
         margin-bottom: 0px;
     }
 `
