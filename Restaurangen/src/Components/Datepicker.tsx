@@ -4,25 +4,24 @@ registerLocale('sv', sv)
 
 interface IDatepickerProps {
     setDate: (date: Date) => void;
-    date: Date | undefined;
+    date: Date;
 }
 
 export default function Datepicker (props: IDatepickerProps) {
-  const passedDates = (date: Date) => new Date() < date;
-  return (
-    <DatePicker 
-    //filterDate={passedDates}
-    locale='sv'
-    selected={props.date} 
-    placeholderText="Välj datum"
-    onChange={(date: Date) => 
-      {
-        console.log(date);
-        props.setDate(date)
-      }}
-    dateFormat="yyyy-MM-dd"
-    required>
-  </DatePicker>
-  )
+    // const isDateDisabled = (date: Date) => {
+    //   return date > new Date();
+    // };
 
-}
+    return (
+      <DatePicker
+        locale='sv'
+        selected={props.date}
+        onChange={(date: Date) => {
+          props.setDate(date);
+        }}
+        dateFormat="yyyy-MM-dd"
+        required
+        //filterDate={isDateDisabled}
+      />
+    );
+  }

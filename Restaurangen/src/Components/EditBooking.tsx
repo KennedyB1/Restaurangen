@@ -11,21 +11,24 @@ import { format } from "date-fns";
 interface IEditBookingProps {
   bookingId: string;
   bookings: IFetchedBooking[];
+  setBookings: (bookings: IFetchedBooking[]) => void;
   customers: ICustomer[];
   setView: (view: string) => void;
+  setIsLoading: (isLoading: boolean) => void;
 }
 
 export default function EditBooking(props: IEditBookingProps) {
 
   const booking = props.bookings.find((booking) => booking._id === props.bookingId);
   const [time, setTime] = useState<string>('');
-  const [bookingDate, setBookingDate] = useState<Date>();
+  const [bookingDate, setBookingDate] = useState<Date>(new Date());
   const [numberOfGuests, setNumberOfGuests] = useState<string>('');
+
   let costumer: ICustomer | undefined = undefined;
 
   useEffect(() => {
     if(booking !== undefined) {
-      setTime(JSON.stringify(booking.time));
+      setTime(booking.time);
       setBookingDate(stringToDate(booking.date));
       setNumberOfGuests(JSON.stringify(booking.numberOfGuests));
     }
@@ -36,7 +39,6 @@ export default function EditBooking(props: IEditBookingProps) {
   const update = async (e: FormEvent) => {
     e.preventDefault();
     if(booking !== undefined) {
-      console.log(booking)
       const bookingData: IBookingUpdate = {
       date: format(bookingDate, 'yyyy-MM-dd'),
       time: time,
@@ -47,9 +49,8 @@ export default function EditBooking(props: IEditBookingProps) {
      }
      
     await updateBooking(bookingData);
-  
     props.setView('1');
-    }
+  }
 }
   
   return (
