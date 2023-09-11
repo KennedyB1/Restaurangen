@@ -5,7 +5,7 @@ export const Nav = styled.nav `
     position: absolute;
     top: 70px;
     z-index: 10;
-    @media (min-width: 768px) {
+    @media (min-width: 820px) {
         display: inline-block;
         top:30px;
         background-color: transparent;
@@ -25,7 +25,7 @@ export const HeaderLi = styled.li `
     font-size: 1.1rem;
     margin: 15px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 820px) {
         position: relative;
         display: inline-block;
         bottom: 7px;
@@ -34,17 +34,29 @@ export const HeaderLi = styled.li `
         font-family: 'Poppins', sans-serif;
     }    
 
-    @media (min-width: 910px) {
+    @media (min-width: 970px) {
         padding-left: 5%;
         font-size: 1.2rem;
     }   
   
     @media (min-width: 1200px) {
-        padding-left:7%;
-    }
+        padding-left: 6%;
+    } 
 
     @media (min-width: 1400px) {
+        padding-left: 9%;
+        font-size: 1.3rem;
+        bottom: 8px;
+    }
+
+    @media (min-width: 1500px) {
         padding-left: 10%;
+        font-size: 1.3rem;
+        bottom: 8px;
+    }
+
+    @media (min-width: 1700px) {
+        padding-left: 12%;
         font-size: 1.3rem;
         bottom: 8px;
     }

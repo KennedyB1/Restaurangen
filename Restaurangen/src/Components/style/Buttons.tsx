@@ -27,19 +27,21 @@ export const HeaderButtonYellow = styled(ButtonYellow) `
     font-size: 0.8rem;
     width: 70px;
     padding-left: 15px;
+    z-index: 11;
 
     @media (min-width: 768px) {
         font-size: 1rem;
         bottom: 65px;
-        left: 80%;
-        width: 100px;
+        left: 83%;
+        width: 85px;
     }
 
     @media (min-width: 1200px) {
         left: 87%;
-        bottom:150px;
+        bottom:120px;
         font-size: 1.5rem;
         width: 130px;
+        
     }
 `
 
