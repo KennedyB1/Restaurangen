@@ -44,6 +44,11 @@ export const ContactUs = () => {
       });
   
   };
+  const isValidEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+  const isButtonDisabled = name.length < 1 || message.length <1 || !isValidEmail(email);
 
   return (
     <Form onSubmit={sendEmail} className='contactForm'>
@@ -60,7 +65,7 @@ export const ContactUs = () => {
     <Textarea value={message}  onChange={(e) => setMessage(e.target.value)} />
   
   
-  <ButtonYellow type="submit" value="Send">Skicka</ButtonYellow>
+  <ButtonYellow type="submit" value="Send" disabled={isButtonDisabled} className={isButtonDisabled ? "DisabledButton" : ""}>Skicka</ButtonYellow>
   {isEmailSent && <span>Meddelandet har skickats!</span>}
 </Form>
 
