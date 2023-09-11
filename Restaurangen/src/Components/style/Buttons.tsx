@@ -10,7 +10,10 @@ export const Button = styled.button `
 
     &:hover {
         cursor: pointer;
-        padding: 12px 20px;
+        background-color: #0E0E0E;
+       // color: #fff; /* Change text color on hover */
+        color: rgb(243, 237, 201);
+        border-color: rgb(243, 237, 201);;
     }
     &:disabled{
         background-color: transparent;    
