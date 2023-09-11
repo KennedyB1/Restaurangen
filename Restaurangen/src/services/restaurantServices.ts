@@ -70,6 +70,7 @@ export const deleteBooking = async(bookingId: string) => {
 export const updateBooking = async(booking: IBookingUpdate) => {
   try{
     const response = await axios.put(`${BASE_URL}/booking/update/${booking.id}`, booking)
+    console.log(response)
     return response.data;
   }
   catch(error){
@@ -79,7 +80,7 @@ export const updateBooking = async(booking: IBookingUpdate) => {
 
 // HÄMTA KUNDUPPGIFTER
 
-export const getCostumer = async(customerId: string) => {
+export const getCustomer = async(customerId: string) => {
   try{
     const response = await axios.get(`${BASE_URL}/customer/${customerId}`)
     return response.data;
