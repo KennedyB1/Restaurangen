@@ -12,6 +12,14 @@ export const Button = styled.button `
         cursor: pointer;
         padding: 12px 20px;
     }
+    &:disabled{
+        background-color: transparent;    
+    }
+    &:disabled:hover{
+        padding: 10px 15px;;
+        cursor: not-allowed;
+    }
+    
 `
 
 export const ButtonYellow = styled(Button) `
