@@ -8,6 +8,7 @@ import Datepicker from "./DatePicker";
 import { DashboardWrapper } from "./style/Wrappers";
 import ChangeBooking from "./ChangeBooking";
 import EditBooking from "./EditBooking";
+import LogoutButton from "./LogOutButton";
 
 export const Dashboard = () => {
   const restaurantId = useContext(restaurantIdContext);
@@ -70,6 +71,7 @@ export const Dashboard = () => {
     if(view === '1') {
         return (
           <BookingSection>
+             <LogoutButton />
               <DashboardWrapper>
                   <H2centered>Välj datum för att visa bokningar</H2centered>
                   <Datepicker setDate={setBookingDate} date={bookingDate} />
@@ -81,6 +83,7 @@ export const Dashboard = () => {
                   removeBooking={removeBooking}
                   setView={setView}
                   setBookingId = {setBookingId}/>}
+                 
               </DashboardWrapper>
           </BookingSection>
         );

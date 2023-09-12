@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { onAuthStateChanged, signOut, User } from "firebase/auth";
+import { onAuthStateChanged, User } from "firebase/auth";
 import { Dashboard } from "./Dashboard";
 import { SignIn } from "./auth/SignIn";
 import { SignUp } from "./auth/SignUp";
@@ -25,23 +25,13 @@ export const Admin = () => {
     };
   }, []);
 
-  const userSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        console.log('signed out');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
   return (
     <div>
         
       {authUser ? (
         <>
           <Dashboard />
-          <button onClick={userSignOut}>Logga ut</button>
+          
         </>
       ) : (
         <>
