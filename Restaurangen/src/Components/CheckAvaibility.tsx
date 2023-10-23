@@ -6,7 +6,7 @@ import { H2 } from "./style/Title";
 import { BookingWrapper } from "./style/Wrappers";
 import { LightP } from "./style/P";
 import { Form } from "react-router-dom";
-import Datepicker from "./DatePicker";
+import Datepicker from "./Datepicker";
 
 interface ICheckAvaibilityProps {
     clickFunction: (e: FormEvent) => void;
