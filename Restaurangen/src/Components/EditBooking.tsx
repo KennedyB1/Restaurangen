@@ -1,6 +1,6 @@
 import { useState, ChangeEvent, useEffect, FormEvent } from "react";
 import { IFetchedBooking, ICustomer, IBookingUpdate } from "../interfaces/interfaces";
-import Datepicker from "./DatePicker";
+import Datepicker from "./Datepicker";
 import { H2centered } from "./style/Title";
 import stringToDate from "../functions/stringToDate";
 import { Input, Select } from "./style/Form";

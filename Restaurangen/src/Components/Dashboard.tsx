@@ -4,7 +4,7 @@ import { deleteBooking, getBookings, getCustomer } from "../services/restaurantS
 import { ICustomer, IFetchedBooking } from "../interfaces/interfaces";
 import { BookingSection } from "./style/BookingStyle";
 import { H2centered } from "./style/Title";
-import Datepicker from "./DatePicker";
+import Datepicker from "./Datepicker";
 import { DashboardWrapper } from "./style/Wrappers";
 import ChangeBooking from "./ChangeBooking";
 import EditBooking from "./EditBooking";
