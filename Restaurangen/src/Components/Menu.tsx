@@ -19,7 +19,7 @@ const text4 = "-  halloumi, cheddarost, syltad rödlök, tomat, sallad, chili ma
 const text5 = "-  cheddarost, sallad, tomat, rostad lök, BBQ mayo "
 
     return <>
-        <ImageStatic src="src/assets/mainImage.jpg"></ImageStatic>
+        <ImageStatic src="/assets/mainImage.jpg"></ImageStatic>
         <LightWrapper>
             <StaticWrapper>
                 <HeaderH2Menu>Meny</HeaderH2Menu>
@@ -46,7 +46,7 @@ const text5 = "-  cheddarost, sallad, tomat, rostad lök, BBQ mayo "
                             <MenuParagraf>{text5}</MenuParagraf>
                         </MenuPartWrapper>
                     </MenuTextWrapper>
-                    <ImageMenu src="src/assets/Menu.jpg"></ImageMenu>
+                    <ImageMenu src="/assets/Menu.jpg"></ImageMenu>
                 </StaticPartWrapper>
             </StaticWrapper>
         </LightWrapper>
