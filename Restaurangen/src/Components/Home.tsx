@@ -27,7 +27,7 @@ export const Home = () => {
                     <HeaderH3Static>{header3}</HeaderH3Static>
                     <Paragraf>{text3}</Paragraf>
                 </StaticTextWrapper>
-                <ImageStaticPage src="src/assets/Erbjudande.jpg"></ImageStaticPage>
+                <ImageStaticPage src="/Restaurangen/public/assets/Erbjudande.jpg"></ImageStaticPage>
             </StaticPartWrapper>
         </StaticWrapper>
     </LightWrapper>

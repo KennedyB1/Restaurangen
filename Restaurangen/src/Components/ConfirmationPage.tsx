@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ButtonGreen } from "./style/Buttons";
-import burger from '../assets/burger.png';
+import burger from '../../public/assets/burger.png';
 import { BookingSection } from "./style/BookingStyle";
 import { BookingWrapper } from "./style/Wrappers";
 import { H2centered } from "./style/Title";
