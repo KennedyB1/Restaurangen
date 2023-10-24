@@ -14,7 +14,7 @@ const text3 = "10% rabatt på på vår BBQ burgare."
 
 export const Home = () => {
     return <>
-    <ImageStatic src="/assets/mainImage.jpg"></ImageStatic>
+    <ImageStatic src="/Restaurangen/public/assets/mainImage.jpg"></ImageStatic>
     <LightWrapper>
         <StaticWrapper>
             <HeaderH2Static>Specialerbjudande</HeaderH2Static>
